@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://gjfjo506jri6"]
+[gd_scene load_steps=12 format=4 uid="uid://gjfjo506jri6"]
 
 [ext_resource type="Texture2D" uid="uid://c5fy5tp1f0icp" path="res://Assets/Tilesets/classroom tiles (1).png" id="1_d4c81"]
-[ext_resource type="Texture2D" uid="uid://c16xvxdtjcq1w" path="res://Scenes/Rectangle 1 (2).png" id="1_m3uch"]
 [ext_resource type="Texture2D" uid="uid://bkjgto2g3r7x1" path="res://Assets/Tilesets/Classroom props (3).png" id="2_2hjot"]
-[ext_resource type="PackedScene" uid="uid://k81xqo3a1aik" path="res://Scenes/PlayerCharacter.tscn" id="3_8sfow"]
-[ext_resource type="PackedScene" uid="uid://ly1x8u4hyifn" path="res://enemies/enemyGhost.tscn" id="4_tn13y"]
+[ext_resource type="PackedScene" uid="uid://xlgr2ti14cbj" path="res://Scenes/character_body_2d.tscn" id="3_8sfow"]
+[ext_resource type="PackedScene" uid="uid://fuof5dmuknpo" path="res://enemies/enemyGhost.tscn" id="4_sh28g"]
+[ext_resource type="PackedScene" uid="uid://df1584rd83crv" path="res://enemies/enemyDino.tscn" id="5_1qfre"]
+[ext_resource type="PackedScene" uid="uid://0y5axqj7cddd" path="res://enemies/enemyGrim.tscn" id="6_wxqkk"]
+[ext_resource type="PackedScene" uid="uid://8ybulnv0i1xe" path="res://enemies/enemyWitch.tscn" id="7_mxi2b"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_pgwr2"]
 vertices = PackedVector2Array(341, -171, 341, -245, 395, -270, 395, 60, -138.039, -270.992, 295, -245, 289.313, -5, 288.883, 13, 288.883, -83, 289.313, -101, 295, -171, 289, -21, -139, 60, 251, 13, 59, -213, 59, -179, 1.3125, -197, 1, -213, 1, -21, 0.882813, -179, 59, -117, 155, -213, 155, -179, 97.3125, -197, 97, -213, 96.8828, -179, 155, -117, 97.3125, -101, 97, -117, 155, -83, 96.8828, -83, 192.883, -179, 251, -117, 251, -83, 193.313, -101, 193, -117, 192.883, -83, 251, -21, 193.313, -5, 193, -21, 59, -21, 59, 13, 1.3125, -5, 0.882813, 13, 155, -21, 155, 13, 97.3125, -5, 97, -21, 96.8828, 13, 192.883, 13, -37, 13, -139, -162.289, -37, -21, 193.313, -197, 289, -117, 193, -197, 193, -213, 97, -197, 1, -197, -37, -213, -37, -179, 289, -101, 193, -101, 97, -101, 59, -83, 289, -5, 193, -5, 97, -5, 1, -5)
@@ -142,12 +144,6 @@ sources/2 = SubResource("TileSetAtlasSource_bnp4q")
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_pgwr2")
 
-[node name="Rectangle1(2)" type="Sprite2D" parent="."]
-z_index = -9
-position = Vector2(131.5, -121)
-scale = Vector2(1.63982, 1.42925)
-texture = ExtResource("1_m3uch")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(131, -120)
 zoom = Vector2(0.595, 0.595)
@@ -179,22 +175,24 @@ tile_set = SubResource("TileSet_d051h")
 position = Vector2(-41, -165)
 metadata/_edit_group_ = true
 
-[node name="Enemy" parent="." instance=ExtResource("4_tn13y")]
-position = Vector2(379, -224)
-POINTS_A = Array[Vector2]([Vector2(379.253, -218.792), Vector2(-112.672, 41.8857)])
-POINTS_B = Array[Vector2]([Vector2(353.185, 45.2493), Vector2(-123.168, -251.44)])
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
-[node name="Enemy2" parent="." instance=ExtResource("4_tn13y")]
-position = Vector2(18, -100)
-POINTS_A = Array[Vector2]([Vector2(10.9402, -138.066)])
-POINTS_B = Array[Vector2]([Vector2(308.618, 40.2039)])
+[node name="Ghost" parent="." instance=ExtResource("4_sh28g")]
+position = Vector2(94, 49)
+POINTS_A = Array[Vector2]([Vector2(-63.5544, -105.592), Vector2(144.101, -148.245), Vector2(361.859, -75.2855)])
+POINTS_B = Array[Vector2]([Vector2(215.939, 54.9202), Vector2(-14.166, -262.737), Vector2(-52.3297, 47.0629)])
 
-[node name="Enemy4" parent="." instance=ExtResource("4_tn13y")]
-position = Vector2(-79, -132)
-POINTS_A = Array[Vector2]([Vector2(-79.0403, -137.16), Vector2(-75.0356, -214.581), Vector2(127.86, -146.504)])
-POINTS_B = Array[Vector2]([Vector2(189.263, -263.97), Vector2(215.959, -50.3958)])
+[node name="Dino" parent="." instance=ExtResource("5_1qfre")]
+position = Vector2(-87, -240)
+POINTS_A = Array[Vector2]([Vector2(-91.5, -233.75), Vector2(375, 47.75)])
+POINTS_B = Array[Vector2]([Vector2(-78.5, 47.25), Vector2(375.5, -259.75)])
 
-[node name="Enemy3" parent="." instance=ExtResource("4_tn13y")]
-position = Vector2(-102, -27)
-POINTS_A = Array[Vector2]([Vector2(-113.393, -190.964), Vector2(316.305, -136.306)])
-POINTS_B = Array[Vector2]([Vector2(136.353, 44.4871), Vector2(92.6263, -262.44)])
+[node name="Grim" parent="." instance=ExtResource("6_wxqkk")]
+position = Vector2(343, -97)
+POINTS_A = Array[Vector2]([Vector2(358, -227.75), Vector2(353.5, 46.25), Vector2(123, -101.25)])
+POINTS_B = Array[Vector2]([Vector2(-100, 47.75)])
+
+[node name="Witch" parent="." instance=ExtResource("7_mxi2b")]
+position = Vector2(-109, -92)
+POINTS_A = Array[Vector2]([Vector2(-109.5, -95.25), Vector2(379, -100.25)])
+POINTS_B = Array[Vector2]([Vector2(128.5, -248.75), Vector2(148, 54.25)])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://4x5gotcxal3p"]
+[gd_scene load_steps=15 format=3 uid="uid://0y5axqj7cddd"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_siv2t"]
 [ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="2_ualbs"]
@@ -88,7 +88,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Grim" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 4
 motion_mode = 1

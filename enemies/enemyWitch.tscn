@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://brgp70cetg2vl"]
+[gd_scene load_steps=21 format=3 uid="uid://8ybulnv0i1xe"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_8dl68"]
 [ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="2_6n5mb"]
@@ -130,7 +130,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Witch" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 4
 motion_mode = 1
