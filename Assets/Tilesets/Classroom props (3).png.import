@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://datk81cbca2rk"
-path="res://.godot/imported/school_E.png-5de461d334831aaf6729dcf0bddeb331.ctex"
+uid="uid://bkjgto2g3r7x1"
+path="res://.godot/imported/Classroom props (3).png-9078eb35a694236b74c5be342f615255.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesets/school_E.png"
-dest_files=["res://.godot/imported/school_E.png-5de461d334831aaf6729dcf0bddeb331.ctex"]
+source_file="res://Assets/Tilesets/Classroom props (3).png"
+dest_files=["res://.godot/imported/Classroom props (3).png-9078eb35a694236b74c5be342f615255.ctex"]
 
 [params]
 
