@@ -1,5 +1,5 @@
-
-
+@tool
+ 
 extends CharacterBody2D
 
 enum State {
@@ -12,7 +12,7 @@ enum State {
 @export var MIN_SPEED: float = 100.0
 @export var MAX_SPEED: float = 200.0
 
-@export var ROTATION_SPEED: float = 5.0
+@export var ROTATION_SPEED: float= 5.0
 @export var alert_color: Color
 @export var vision_color: Color
 
@@ -44,7 +44,6 @@ var m_State: State = State.Idle;
 var m_Timer: float = 0.0;
 var m_GoingToA: bool = true;
 var m_Direction := Vector2.ZERO;
-var m_Animation := "idle";
 var m_TargetPos := Vector2.ZERO;
 
 func _ready() -> void:
@@ -54,15 +53,25 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
-	var animDir := GetDirectionString();
-	#animation.play(m_Animation + "_" + animDir)
-	animation.play(m_Animation)
+	if Engine.is_editor_hint():
+		return;
+	
+	animation.flip_h = false;
+	
+	match m_State:
+		State.Idle:
+			ProcessIdleAnimation(delta);
+		State.Walking:
+			ProcessWalkingAnimation(delta);
+		State.Talking:
+			return;
+		State.Scared:
+			return;	
 	
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		queue_redraw();
-		var nodes := EditorInterface.get_selection().get_selected_nodes();
-		if nodes.size() > 0 && nodes[0] == self:
+		if SelectedInEditor():
 			if Input.is_action_just_pressed("NEW_POINT_A"):
 				if POINTS_A.size() == 0:
 					POINTS_A = [];
@@ -90,8 +99,12 @@ func _physics_process(delta: float) -> void:
 func RotateConeVision() -> void:
 	vision_cone.rotation = m_Direction.angle() + deg_to_rad(270)
 
+func SelectedInEditor() -> bool:
+	var nodes := EditorInterface.get_selection().get_selected_nodes();
+	return nodes.size() > 0 && nodes[0] == self;
+
 func _draw() -> void:
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() && SelectedInEditor():
 		DrawPoints(POINTS_A, Color.RED);
 		DrawLines(POINTS_A, Color.RED);
 		
@@ -179,12 +192,9 @@ func SetDesiredDirectionOverTime(desiredDirection: Vector2, delta: float) -> voi
 
 ## ON ENTER STATES ##
 func OnEnteredIdle() -> void:
-	print("ENTERED IDLE");
 	m_Timer = randf_range(MIN_IDLE_TIME, MAX_IDLE_TIME)
-	m_Animation = "idle"
 	
 func OnEnteredWalking() -> void:
-	print("ENTERED WALKING");
 	m_GoingToA = !m_GoingToA
 	var points := POINTS_A if m_GoingToA else POINTS_B;
 	if points.size() == 0:
@@ -192,7 +202,6 @@ func OnEnteredWalking() -> void:
 		return;
 		
 	SetWalkingPosition(points);
-	m_Animation = "walk"
 	
 
 func OnEnteredTalking() -> void:
@@ -227,6 +236,17 @@ func ProcessWalking(delta: float) -> void:
 		navigation.set_velocity_forced(newVelocity)
 	else:
 		velocity = newVelocity
+
+func ProcessIdleAnimation(delta: float) -> void:
+	animation.play("idle")
+	
+func ProcessWalkingAnimation(delta: float) -> void:
+	var animDir := GetDirectionString();
+	if (animDir == "left"):
+		animation.flip_h = true;
+		animDir = "right";
+	
+	animation.play("walk_" + animDir)
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	if m_State == State.Walking:

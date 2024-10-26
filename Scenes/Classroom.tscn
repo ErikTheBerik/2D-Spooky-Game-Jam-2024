@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://gjfjo506jri6"]
+[gd_scene load_steps=12 format=4 uid="uid://gjfjo506jri6"]
 
 [ext_resource type="Texture2D" uid="uid://c5fy5tp1f0icp" path="res://Assets/Tilesets/classroom tiles (1).png" id="1_d4c81"]
 [ext_resource type="Texture2D" uid="uid://bkjgto2g3r7x1" path="res://Assets/Tilesets/Classroom props (3).png" id="2_2hjot"]
-[ext_resource type="PackedScene" uid="uid://k81xqo3a1aik" path="res://Scenes/PlayerCharacter.tscn" id="3_8sfow"]
-[ext_resource type="PackedScene" uid="uid://ly1x8u4hyifn" path="res://enemies/enemyGhost.tscn" id="4_tn13y"]
+[ext_resource type="PackedScene" uid="uid://xlgr2ti14cbj" path="res://Scenes/character_body_2d.tscn" id="3_8sfow"]
+[ext_resource type="PackedScene" uid="uid://fuof5dmuknpo" path="res://enemies/enemyGhost.tscn" id="4_sh28g"]
+[ext_resource type="PackedScene" uid="uid://df1584rd83crv" path="res://enemies/enemyDino.tscn" id="5_1qfre"]
+[ext_resource type="PackedScene" uid="uid://0y5axqj7cddd" path="res://enemies/enemyGrim.tscn" id="6_wxqkk"]
+[ext_resource type="PackedScene" uid="uid://8ybulnv0i1xe" path="res://enemies/enemyWitch.tscn" id="7_mxi2b"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_pgwr2"]
 vertices = PackedVector2Array(285.953, -86, 286.242, -98, 298, -174, 338, -174, 398, 63, 286.242, -2, 286, -18, 338, -242, 398, -273, -141.008, -273.992, 298, -242, 285.953, 10, -142, 63, 254, 10, 94.2422, -194, 158, -210, 158, -182, 93.9531, -182, -2.04688, -182, -1.75781, -194, 62, -210, 62, -182, -2, -18, 190.242, -98, 254, -114, 254, -86, 189.953, -86, 94.2422, -98, 158, -114, 158, -86, 93.9531, -86, 190.242, -2, 254, -18, 189.953, 10, 94.2422, -2, 158, -18, 158, 10, 93.9531, 10, -1.75781, -2, 62, -18, 62, 10, -2.04688, 10, 189.953, -182, 190.242, -194, 286, -114, -34, 10, -142, -162.312, -34, -18, 190, -194, 190, -210, 94, -194, 94, -210, -2, -194, -2, -210, -34, -210, -34, -182, 286, -98, 190, -114, 190, -98, 94, -114, 94, -98, 62, -114, 62, -86, 286, -2, 190, -18, 190, -2, 94, -18, 94, -2, -2, -2)
@@ -170,22 +173,22 @@ metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
-[node name="Enemy" parent="." instance=ExtResource("4_tn13y")]
-position = Vector2(379, -224)
-POINTS_A = Array[Vector2]([Vector2(379.253, -218.792), Vector2(-112.672, 41.8857)])
-POINTS_B = Array[Vector2]([Vector2(353.185, 45.2493), Vector2(-123.168, -251.44)])
+[node name="Ghost" parent="." instance=ExtResource("4_sh28g")]
+position = Vector2(94, 49)
+POINTS_A = Array[Vector2]([Vector2(-63.5544, -105.592), Vector2(144.101, -148.245), Vector2(361.859, -75.2855)])
+POINTS_B = Array[Vector2]([Vector2(215.939, 54.9202), Vector2(-14.166, -262.737), Vector2(-52.3297, 47.0629)])
 
-[node name="Enemy2" parent="." instance=ExtResource("4_tn13y")]
-position = Vector2(18, -100)
-POINTS_A = Array[Vector2]([Vector2(10.9402, -138.066)])
-POINTS_B = Array[Vector2]([Vector2(308.618, 40.2039)])
+[node name="Dino" parent="." instance=ExtResource("5_1qfre")]
+position = Vector2(-87, -240)
+POINTS_A = Array[Vector2]([Vector2(-91.5, -233.75), Vector2(375, 47.75)])
+POINTS_B = Array[Vector2]([Vector2(-78.5, 47.25), Vector2(375.5, -259.75)])
 
-[node name="Enemy4" parent="." instance=ExtResource("4_tn13y")]
-position = Vector2(-79, -132)
-POINTS_A = Array[Vector2]([Vector2(-79.0403, -137.16), Vector2(-75.0356, -214.581), Vector2(127.86, -146.504)])
-POINTS_B = Array[Vector2]([Vector2(189.263, -263.97), Vector2(215.959, -50.3958)])
+[node name="Grim" parent="." instance=ExtResource("6_wxqkk")]
+position = Vector2(343, -97)
+POINTS_A = Array[Vector2]([Vector2(358, -227.75), Vector2(353.5, 46.25), Vector2(123, -101.25)])
+POINTS_B = Array[Vector2]([Vector2(-100, 47.75)])
 
-[node name="Enemy3" parent="." instance=ExtResource("4_tn13y")]
-position = Vector2(-102, -27)
-POINTS_A = Array[Vector2]([Vector2(-113.393, -190.964), Vector2(316.305, -136.306)])
-POINTS_B = Array[Vector2]([Vector2(136.353, 44.4871), Vector2(92.6263, -262.44)])
+[node name="Witch" parent="." instance=ExtResource("7_mxi2b")]
+position = Vector2(-109, -92)
+POINTS_A = Array[Vector2]([Vector2(-109.5, -95.25), Vector2(379, -100.25)])
+POINTS_B = Array[Vector2]([Vector2(128.5, -248.75), Vector2(148, 54.25)])
