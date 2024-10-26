@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c5fy5tp1f0icp" path="res://Assets/Tilesets/classroom tiles (1).png" id="1_d4c81"]
 [ext_resource type="Texture2D" uid="uid://bkjgto2g3r7x1" path="res://Assets/Tilesets/Classroom props (3).png" id="2_2hjot"]
-[ext_resource type="PackedScene" uid="uid://k81xqo3a1aik" path="res://Scenes/character_body_2d.tscn" id="3_8sfow"]
-[ext_resource type="PackedScene" uid="uid://ly1x8u4hyifn" path="res://enemies/enemy.tscn" id="4_tn13y"]
+[ext_resource type="PackedScene" uid="uid://k81xqo3a1aik" path="res://Scenes/PlayerCharacter.tscn" id="3_8sfow"]
+[ext_resource type="PackedScene" uid="uid://ly1x8u4hyifn" path="res://enemies/enemyGhost.tscn" id="4_tn13y"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gf838"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
