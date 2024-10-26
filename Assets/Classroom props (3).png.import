@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6n7cc0e02j6q"
-path="res://.godot/imported/non-rm-a1horror-square.png-42750f79207648fe9aebd88b905186b7.ctex"
+uid="uid://dyib7v1kp4gcb"
+path="res://.godot/imported/Classroom props (3).png-e477064dcb63a1e24cc86e2186bd4120.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesets/non-rm-a1horror-square.png"
-dest_files=["res://.godot/imported/non-rm-a1horror-square.png-42750f79207648fe9aebd88b905186b7.ctex"]
+source_file="res://Assets/Classroom props (3).png"
+dest_files=["res://.godot/imported/Classroom props (3).png-e477064dcb63a1e24cc86e2186bd4120.ctex"]
 
 [params]
 

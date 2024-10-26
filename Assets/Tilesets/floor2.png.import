@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f64bssrnfdjx"
-path="res://.godot/imported/school_D.png-beb606bf4ef78c198329acb1bce91621.ctex"
+uid="uid://du6rxtjwahmn2"
+path="res://.godot/imported/floor2.png-13cbb2ea4a89e66ed64b1f6f78254cb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesets/school_D.png"
-dest_files=["res://.godot/imported/school_D.png-beb606bf4ef78c198329acb1bce91621.ctex"]
+source_file="res://Assets/Tilesets/floor2.png"
+dest_files=["res://.godot/imported/floor2.png-13cbb2ea4a89e66ed64b1f6f78254cb8.ctex"]
 
 [params]
 

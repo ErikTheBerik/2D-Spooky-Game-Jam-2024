@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blwdvd3edlx83"
-path="res://.godot/imported/school_A4.png-ecfa399ee2d50f1ddea79bb7cb819c28.ctex"
+uid="uid://c5fy5tp1f0icp"
+path="res://.godot/imported/classroom tiles (1).png-e1bc81bccef52373f86557e7dd5ec9be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesets/school_A4.png"
-dest_files=["res://.godot/imported/school_A4.png-ecfa399ee2d50f1ddea79bb7cb819c28.ctex"]
+source_file="res://Assets/Tilesets/classroom tiles (1).png"
+dest_files=["res://.godot/imported/classroom tiles (1).png-e1bc81bccef52373f86557e7dd5ec9be.ctex"]
 
 [params]
 
