@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://gjfjo506jri6"]
+[gd_scene load_steps=10 format=4 uid="uid://gjfjo506jri6"]
 
 [ext_resource type="Texture2D" uid="uid://c5fy5tp1f0icp" path="res://Assets/Tilesets/classroom tiles (1).png" id="1_d4c81"]
+[ext_resource type="Texture2D" uid="uid://c16xvxdtjcq1w" path="res://Scenes/Rectangle 1 (2).png" id="1_m3uch"]
 [ext_resource type="Texture2D" uid="uid://bkjgto2g3r7x1" path="res://Assets/Tilesets/Classroom props (3).png" id="2_2hjot"]
 [ext_resource type="PackedScene" uid="uid://k81xqo3a1aik" path="res://Scenes/PlayerCharacter.tscn" id="3_8sfow"]
 [ext_resource type="PackedScene" uid="uid://ly1x8u4hyifn" path="res://enemies/enemyGhost.tscn" id="4_tn13y"]
@@ -140,6 +141,12 @@ sources/2 = SubResource("TileSetAtlasSource_bnp4q")
 [node name="Layer Holder" type="NavigationRegion2D"]
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_pgwr2")
+
+[node name="Rectangle1(2)" type="Sprite2D" parent="."]
+z_index = -9
+position = Vector2(131.5, -121)
+scale = Vector2(1.63982, 1.42925)
+texture = ExtResource("1_m3uch")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(131, -120)

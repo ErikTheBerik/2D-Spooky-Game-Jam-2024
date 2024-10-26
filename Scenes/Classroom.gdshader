@@ -1,3 +1,4 @@
+
 shader_type canvas_item;
 
 uniform vec3 color_one : source_color; 
@@ -5,7 +6,7 @@ uniform vec3 color_two : source_color;
 
 uniform float angle = 20.0;
 uniform float line_count = 20.0; 
-uniform float speed = 10.0; 
+uniform float speed = 102.0; 
 uniform float blur : hint_range(0.0, 2.0, 0); 
 
 vec2 rotate(vec2 uv, float rotation_angle) {
