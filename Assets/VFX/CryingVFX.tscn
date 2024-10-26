@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://d3okncr2wgh6v"]
+
+[ext_resource type="Shader" path="res://Assets/VFX Textures/CryingVFX.gdshader" id="1_8ro2u"]
+[ext_resource type="Texture2D" uid="uid://bem84kx2k5ll" path="res://Assets/VFX Textures/water_2504905.png" id="2_k7vfg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_53iel"]
+shader = ExtResource("1_8ro2u")
+
+[sub_resource type="Curve" id="Curve_17qm7"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0.0627803, -202.082), 0.0, 0.0, 0, 0, Vector2(0.923767, 333.234), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_s1kei"]
+curve = SubResource("Curve_17qm7")
+
+[sub_resource type="Curve" id="Curve_l5fsl"]
+_data = [Vector2(0.183857, 1), 1.86901, 0.0, 0, 0, Vector2(1, 0.3829), 1.86901, 4.55948, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_i3s2p"]
+curve_x = SubResource("Curve_l5fsl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ydisj"]
+lifetime_randomness = 0.2
+particle_flag_align_y = true
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+angular_velocity_min = 123.87
+angular_velocity_max = 459.35
+angular_velocity_curve = SubResource("CurveTexture_s1kei")
+directional_velocity_min = 145.52
+directional_velocity_max = 284.87
+directional_velocity_curve = SubResource("CurveXYZTexture_i3s2p")
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qcy57"]
+shader = ExtResource("1_8ro2u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qe8j1"]
+lifetime_randomness = 0.2
+particle_flag_align_y = true
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+angular_velocity_min = 123.87
+angular_velocity_max = 459.35
+angular_velocity_curve = SubResource("CurveTexture_s1kei")
+directional_velocity_min = -315.28
+directional_velocity_max = -175.93
+directional_velocity_curve = SubResource("CurveXYZTexture_i3s2p")
+gravity = Vector3(0, 98, 0)
+
+[node name="Control Node" type="Node2D"]
+
+[node name="Crying 1" type="GPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_53iel")
+position = Vector2(324, -3)
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_ydisj")
+texture = ExtResource("2_k7vfg")
+lifetime = 6.0
+speed_scale = 5.76
+explosiveness = 0.4
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_qcy57")
+position = Vector2(-468, 0)
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_qe8j1")
+texture = ExtResource("2_k7vfg")
+lifetime = 6.0
+speed_scale = 5.76
+explosiveness = 0.4

@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7i76wnnxykn2"]
+
+[ext_resource type="Shader" path="res://Assets/VFX Textures/CryingVFX.gdshader" id="1_gxyxu"]
+[ext_resource type="Texture2D" uid="uid://bbkqr8pt6tv35" path="res://Assets/VFX Textures/chat_10042712.png" id="2_11rr3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jjek3"]
+shader = ExtResource("1_gxyxu")
+
+[sub_resource type="Animation" id="Animation_nji88"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jd2fo"]
+resource_name = "talking movement bubble"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.433333, 1.53333, 2.6),
+"transitions": PackedFloat32Array(1.62451, 1.62451, 1.62451),
+"update": 0,
+"values": [Vector2(0, 40), Vector2(0, 80), Vector2(0, 40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hnlc8"]
+_data = {
+"RESET": SubResource("Animation_nji88"),
+"talking movement bubble": SubResource("Animation_jd2fo")
+}
+
+[node name="Sprite2D" type="Sprite2D"]
+material = SubResource("ShaderMaterial_jjek3")
+texture = ExtResource("2_11rr3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hnlc8")
+}
+speed_scale = 2.485

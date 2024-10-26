@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bonu5hufeu1m6"]
+
+[ext_resource type="Texture2D" uid="uid://cncdkoreycpyh" path="res://Assets/VFX Textures/musical_note.png" id="1_8xn7e"]
+
+[sub_resource type="Curve" id="Curve_fvtbn"]
+_data = [Vector2(0.00211416, 0), 0.0, 0.0, 0, 0, Vector2(0.334038, 0.442158), 2.09057, 2.09057, 0, 0, Vector2(0.936575, 0.158344), -3.85759, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tviim"]
+curve = SubResource("Curve_fvtbn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dvenl"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(3.475, 1.235, 1)
+angular_velocity_min = -70.78
+angular_velocity_max = 59.89
+gravity = Vector3(0, -98, 0)
+scale_curve = SubResource("CurveTexture_tviim")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 2
+process_material = SubResource("ParticleProcessMaterial_dvenl")
+texture = ExtResource("1_8xn7e")
+lifetime = 1.5
