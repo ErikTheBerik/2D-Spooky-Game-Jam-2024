@@ -1,0 +1,190 @@
+[gd_scene load_steps=21 format=3 uid="uid://brgp70cetg2vl"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_8dl68"]
+[ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="2_6n5mb"]
+[ext_resource type="Texture2D" uid="uid://bcnpvbdpxqv6c" path="res://Assets/Spritesheets/witch-idle.png" id="3_eko3d"]
+[ext_resource type="Texture2D" uid="uid://b18qe1m8vhbhg" path="res://Assets/Spritesheets/witch-scared.png" id="4_3rci1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cbo24"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_23xlk"]
+radius = 50.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fbrd"]
+atlas = ExtResource("3_eko3d")
+region = Rect2(0, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rvrt"]
+atlas = ExtResource("3_eko3d")
+region = Rect2(39, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pefh"]
+atlas = ExtResource("3_eko3d")
+region = Rect2(78, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsj00"]
+atlas = ExtResource("3_eko3d")
+region = Rect2(117, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt3ue"]
+atlas = ExtResource("3_eko3d")
+region = Rect2(156, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vfy2"]
+atlas = ExtResource("3_eko3d")
+region = Rect2(195, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqcec"]
+atlas = ExtResource("3_eko3d")
+region = Rect2(234, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjw1l"]
+atlas = ExtResource("3_eko3d")
+region = Rect2(273, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5q6u"]
+atlas = ExtResource("3_eko3d")
+region = Rect2(312, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kylfd"]
+atlas = ExtResource("3_eko3d")
+region = Rect2(351, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjtga"]
+atlas = ExtResource("3_eko3d")
+region = Rect2(390, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nwym"]
+atlas = ExtResource("4_3rci1")
+region = Rect2(0, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep0ej"]
+atlas = ExtResource("4_3rci1")
+region = Rect2(39, 0, 39, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dten2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fbrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rvrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pefh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsj00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt3ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vfy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqcec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjw1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5q6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kylfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjtga")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nwym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ep0ej")
+}],
+"loop": true,
+"name": &"scare",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_up",
+"speed": 10.0
+}]
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
+motion_mode = 1
+script = ExtResource("1_8dl68")
+MIN_SPEED = 30.0
+MAX_SPEED = 50.0
+ROTATION_SPEED = 8.0
+alert_color = Color(0.678431, 0.105882, 0.137255, 0.705882)
+vision_color = Color(0.246022, 0.66931, 0.876344, 0.686275)
+MIN_IDLE_TIME = 3.0
+MAX_IDLE_TIME = 6.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_cbo24")
+
+[node name="TalkingArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkingArea"]
+shape = SubResource("CircleShape2D_23xlk")
+
+[node name="VisionCone2D" parent="." instance=ExtResource("2_6n5mb")]
+position = Vector2(0, -18)
+angle_deg = 90
+ray_count = 20
+max_distance = 70.0
+collision_layer_mask = 4
+
+[node name="VisionConeRenderer" parent="VisionCone2D" index="0"]
+color = Color(0.246022, 0.66931, 0.876344, 0.686275)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 5.0
+target_desired_distance = 5.0
+path_postprocessing = 1
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0.91375, 0.332255, 0.161062, 1)
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dten2")
+animation = &"idle"
+autoplay = "idle"
+frame = 2
+frame_progress = 0.135641
+offset = Vector2(0, -8)
+
+[connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
+[connection signal="body_exited" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_exited"]
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="OnTargetReached"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+
+[editable path="VisionCone2D"]

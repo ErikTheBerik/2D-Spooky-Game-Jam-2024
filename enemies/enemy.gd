@@ -1,4 +1,4 @@
-@tool
+
 
 extends CharacterBody2D
 

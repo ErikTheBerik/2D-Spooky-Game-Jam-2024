@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c5fy5tp1f0icp" path="res://Assets/Tilesets/classroom tiles (1).png" id="1_d4c81"]
 [ext_resource type="Texture2D" uid="uid://bkjgto2g3r7x1" path="res://Assets/Tilesets/Classroom props (3).png" id="2_2hjot"]
-[ext_resource type="PackedScene" uid="uid://k81xqo3a1aik" path="res://Scenes/character_body_2d.tscn" id="3_8sfow"]
-[ext_resource type="PackedScene" uid="uid://ly1x8u4hyifn" path="res://enemies/enemy.tscn" id="4_tn13y"]
+[ext_resource type="PackedScene" uid="uid://k81xqo3a1aik" path="res://Scenes/PlayerCharacter.tscn" id="3_8sfow"]
+[ext_resource type="PackedScene" uid="uid://ly1x8u4hyifn" path="res://enemies/enemyGhost.tscn" id="4_tn13y"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_pgwr2"]
 vertices = PackedVector2Array(285.953, -86, 286.242, -98, 298, -174, 338, -174, 398, 63, 286.242, -2, 286, -18, 338, -242, 398, -273, -141.008, -273.992, 298, -242, 285.953, 10, -142, 63, 254, 10, 94.2422, -194, 158, -210, 158, -182, 93.9531, -182, -2.04688, -182, -1.75781, -194, 62, -210, 62, -182, -2, -18, 190.242, -98, 254, -114, 254, -86, 189.953, -86, 94.2422, -98, 158, -114, 158, -86, 93.9531, -86, 190.242, -2, 254, -18, 189.953, 10, 94.2422, -2, 158, -18, 158, 10, 93.9531, 10, -1.75781, -2, 62, -18, 62, 10, -2.04688, 10, 189.953, -182, 190.242, -194, 286, -114, -34, 10, -142, -162.312, -34, -18, 190, -194, 190, -210, 94, -194, 94, -210, -2, -194, -2, -210, -34, -210, -34, -182, 286, -98, 190, -114, 190, -98, 94, -114, 94, -98, 62, -114, 62, -86, 286, -2, 190, -18, 190, -2, 94, -18, 94, -2, -2, -2)

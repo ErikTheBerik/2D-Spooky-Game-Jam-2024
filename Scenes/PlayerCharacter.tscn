@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://k81xqo3a1aik"]
+
+[ext_resource type="Script" path="res://Scenes/Scripts/character_body_2d.gd" id="1_wprin"]
+[ext_resource type="Texture2D" uid="uid://bxy7ry1enc623" path="res://Assets/Spritesheets/Player-idle.png" id="2_opjj1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gufn"]
+atlas = ExtResource("2_opjj1")
+region = Rect2(0, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3l2p"]
+atlas = ExtResource("2_opjj1")
+region = Rect2(39, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkcgs"]
+atlas = ExtResource("2_opjj1")
+region = Rect2(78, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2e300"]
+atlas = ExtResource("2_opjj1")
+region = Rect2(117, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a74wf"]
+atlas = ExtResource("2_opjj1")
+region = Rect2(156, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1gns"]
+atlas = ExtResource("2_opjj1")
+region = Rect2(195, 0, 39, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hv48t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gufn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3l2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkcgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2e300")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a74wf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1gns")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"scare",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jyfrj"]
+height = 38.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 3
+collision_mask = 4
+motion_mode = 1
+script = ExtResource("1_wprin")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hv48t")
+animation = &"idle"
+frame = 5
+frame_progress = 0.0534701
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jyfrj")
