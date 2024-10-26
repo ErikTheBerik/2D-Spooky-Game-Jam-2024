@@ -45,7 +45,7 @@ var m_Timer: float = 0.0;
 var m_GoingToA: bool = true;
 var m_Direction := Vector2.ZERO;
 var m_Animation := "idle";
-var m_TargetPos := Vector2.ZERO
+var m_TargetPos := Vector2.ZERO;
 
 func _ready() -> void:
 	m_Direction = Vector2.RIGHT;
@@ -159,7 +159,6 @@ func SetWalkingPosition(somePoints: Array[Vector2]) -> void:
 	
 	var index := randi_range(0, size-1);
 	m_TargetPos = somePoints[index];
-	navigation.target_position = m_TargetPos
 	
 
 func SetState(newState: State) -> void:
@@ -182,7 +181,6 @@ func SetDesiredDirectionOverTime(desiredDirection: Vector2, delta: float) -> voi
 func OnEnteredIdle() -> void:
 	print("ENTERED IDLE");
 	m_Timer = randf_range(MIN_IDLE_TIME, MAX_IDLE_TIME)
-	velocity = Vector2.ZERO;
 	m_Animation = "idle"
 	
 func OnEnteredWalking() -> void:
@@ -208,6 +206,7 @@ func OnTargetReached() -> void:
 	
 ## PROCESS STATES ##
 func ProcessIdle(delta: float) -> void:
+	velocity = Vector2.ZERO
 	m_Timer -= delta;
 	if (m_Timer <= 0):
 		SetState(State.Walking);
@@ -217,7 +216,7 @@ func ProcessIdle(delta: float) -> void:
 		
 
 func ProcessWalking(delta: float) -> void:
-
+	navigation.target_position = m_TargetPos;
 	var target: Vector2 = navigation.get_next_path_position()
 	var desiredDirection := global_position.direction_to(target)
 	
@@ -229,12 +228,9 @@ func ProcessWalking(delta: float) -> void:
 	else:
 		velocity = newVelocity
 
-func _on_idle_timer_end() -> void:
-	m_State = State.Walking;
-
-
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
-	velocity = safe_velocity
+	if m_State == State.Walking:
+		velocity = safe_velocity
 
 
 func _on_vision_cone_area_body_entered(body: Node2D) -> void:

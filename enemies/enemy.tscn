@@ -89,6 +89,8 @@ MAX_SPEED = 50.0
 ROTATION_SPEED = 8.0
 alert_color = Color(0.678431, 0.105882, 0.137255, 0.705882)
 vision_color = Color(0.246022, 0.66931, 0.876344, 0.686275)
+MIN_IDLE_TIME = 3.0
+MAX_IDLE_TIME = 6.0
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -117,7 +119,6 @@ color = Color(0.246022, 0.66931, 0.876344, 0.686275)
 path_desired_distance = 5.0
 target_desired_distance = 5.0
 path_postprocessing = 1
-avoidance_enabled = true
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.91375, 0.332255, 0.161062, 1)
@@ -126,7 +127,7 @@ debug_path_custom_color = Color(0.91375, 0.332255, 0.161062, 1)
 sprite_frames = SubResource("SpriteFrames_dten2")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.611111
+frame_progress = 0.420311
 offset = Vector2(0, -8)
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
