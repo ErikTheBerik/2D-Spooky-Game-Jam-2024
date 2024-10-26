@@ -32,7 +32,7 @@ enum State {
 @export var RENDER_POINTS: bool = true
 @export var RENDER_POINT_LINES: bool = true
 
-@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var navigation: NavigationAgent2D = $NavigationAgent2D
 @onready var vision_cone: VisionCone2D = $VisionCone2D
 @onready var vision_renderer: Polygon2D = $VisionCone2D/VisionConeRenderer
 @onready var m_Speed := randf_range(MIN_SPEED, MAX_SPEED)
@@ -43,8 +43,9 @@ var pointRadius: float = 10.0;
 var m_State: State = State.Idle;
 var m_Timer: float = 0.0;
 var m_GoingToA: bool = true;
-var m_Direction: Vector2 = Vector2.ZERO;
+var m_Direction := Vector2.ZERO;
 var m_Animation := "idle";
+var m_TargetPos := Vector2.ZERO
 
 func _ready() -> void:
 	m_Direction = Vector2.RIGHT;
@@ -157,7 +158,8 @@ func SetWalkingPosition(somePoints: Array[Vector2]) -> void:
 		return;
 	
 	var index := randi_range(0, size-1);
-	navigation_agent_2d.target_position = somePoints[index];
+	m_TargetPos = somePoints[index];
+	navigation.target_position = m_TargetPos
 	
 
 func SetState(newState: State) -> void:
@@ -173,7 +175,7 @@ func SetState(newState: State) -> void:
 			OnEnteredScared();
 
 
-func SetDesiredDirectionOverTim(desiredDirection: Vector2, delta: float) -> void:
+func SetDesiredDirectionOverTime(desiredDirection: Vector2, delta: float) -> void:
 	m_Direction = m_Direction.slerp(desiredDirection, ROTATION_SPEED * delta).normalized()
 
 ## ON ENTER STATES ##
@@ -211,25 +213,21 @@ func ProcessIdle(delta: float) -> void:
 		SetState(State.Walking);
 
 	var desiredDirection := GetBasicDirectionVector();
-	SetDesiredDirectionOverTim(desiredDirection, delta)
+	SetDesiredDirectionOverTime(desiredDirection, delta)
 		
 
 func ProcessWalking(delta: float) -> void:
-	var navWorks: bool = navigation_agent_2d.get_current_navigation_path().size() > 0
-	var target: Vector2 = navigation_agent_2d.get_next_path_position() if navWorks else navigation_agent_2d.target_position
+
+	var target: Vector2 = navigation.get_next_path_position()
 	var desiredDirection := global_position.direction_to(target)
 	
-	SetDesiredDirectionOverTim(desiredDirection, delta)
+	SetDesiredDirectionOverTime(desiredDirection, delta)
 	
 	var newVelocity := m_Direction * m_Speed
-	if navWorks && navigation_agent_2d.avoidance_enabled:
-		navigation_agent_2d.set_velocity_forced(newVelocity)
+	if navigation.avoidance_enabled:
+		navigation.set_velocity_forced(newVelocity)
 	else:
 		velocity = newVelocity
-		
-	if !navWorks:
-		if (global_position.distance_to(target) <= navigation_agent_2d.target_desired_distance):
-			OnTargetReached();
 
 func _on_idle_timer_end() -> void:
 	m_State = State.Walking;

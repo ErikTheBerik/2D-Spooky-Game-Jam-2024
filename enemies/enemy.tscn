@@ -81,7 +81,7 @@ animations = [{
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_jvum1")
 MIN_SPEED = 30.0
@@ -92,7 +92,7 @@ vision_color = Color(0.246022, 0.66931, 0.876344, 0.686275)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 13)
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_cbo24")
 
 [node name="TalkingArea" type="Area2D" parent="."]
@@ -104,11 +104,11 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_23xlk")
 
 [node name="VisionCone2D" parent="." instance=ExtResource("3_i7rw8")]
-position = Vector2(0, -10)
+position = Vector2(0, -18)
 angle_deg = 90
 ray_count = 20
 max_distance = 70.0
-collision_layer_mask = 1
+collision_layer_mask = 4
 
 [node name="VisionConeRenderer" parent="VisionCone2D" index="0"]
 color = Color(0.246022, 0.66931, 0.876344, 0.686275)
@@ -124,8 +124,10 @@ debug_path_custom_color = Color(0.91375, 0.332255, 0.161062, 1)
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dten2")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.611111
+offset = Vector2(0, -8)
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
 [connection signal="body_exited" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_exited"]
