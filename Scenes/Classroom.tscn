@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c5fy5tp1f0icp" path="res://Assets/Tilesets/classroom tiles (1).png" id="1_d4c81"]
 [ext_resource type="Texture2D" uid="uid://bkjgto2g3r7x1" path="res://Assets/Tilesets/Classroom props (3).png" id="2_2hjot"]
-[ext_resource type="PackedScene" uid="uid://xlgr2ti14cbj" path="res://Scenes/character_body_2d.tscn" id="3_8sfow"]
+[ext_resource type="PackedScene" uid="uid://xlgr2ti14cbj" path="res://Player Character/character_body_2d.tscn" id="3_8sfow"]
 [ext_resource type="PackedScene" uid="uid://fuof5dmuknpo" path="res://enemies/enemyGhost.tscn" id="4_sh28g"]
 [ext_resource type="PackedScene" uid="uid://df1584rd83crv" path="res://enemies/enemyDino.tscn" id="5_1qfre"]
 [ext_resource type="PackedScene" uid="uid://0y5axqj7cddd" path="res://enemies/enemyGrim.tscn" id="6_wxqkk"]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c16xvxdtjcq1w"
-path="res://.godot/imported/Rectangle 1 (2).png-87e355c59a2b9f20b9c2bfe6966ea667.ctex"
+path="res://.godot/imported/Rectangle 1 (2).png-d078669ec12e454f63d6b584b9797047.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Rectangle 1 (2).png"
-dest_files=["res://.godot/imported/Rectangle 1 (2).png-87e355c59a2b9f20b9c2bfe6966ea667.ctex"]
+source_file="res://Assets/Tilesets/Rectangle 1 (2).png"
+dest_files=["res://.godot/imported/Rectangle 1 (2).png-d078669ec12e454f63d6b584b9797047.ctex"]
 
 [params]
 
