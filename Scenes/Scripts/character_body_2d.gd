@@ -12,6 +12,6 @@ func _physics_process(delta: float) -> void:
 
 	axis = axis.normalized() * speed
 
-	velocity = velocity.lerp(axis, 0.1)
+	velocity = velocity.lerp(axis, delta*10)
 
 	move_and_slide()
