@@ -189,10 +189,10 @@ func RotateConeVision() -> void:
 
 ## REMOVE THIS BEFORE EXPORT!!
 func SelectedInEditor() -> bool:
-	#if !Engine.is_editor_hint():
-		#return false;
-	#var nodes := EditorInterface.get_selection().get_selected_nodes();
-	#return nodes.size() > 0 && nodes[0] == self;
+	if !Engine.is_editor_hint():
+		return false;
+	var nodes := EditorInterface.get_selection().get_selected_nodes();
+	return nodes.size() > 0 && nodes[0] == self;
 	return false;
 
 func _draw() -> void:		
