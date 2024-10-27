@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b18qe1m8vhbhg" path="res://Assets/Spritesheets/witch-scared.png" id="4_3rci1"]
 [ext_resource type="Texture2D" uid="uid://cay2wdckysq5t" path="res://Assets/Spritesheets/witch-Sidewalkt.png" id="5_sp3l0"]
 [ext_resource type="Texture2D" uid="uid://c1y1umy588vno" path="res://Assets/Spritesheets/witch-Upwalk.png" id="6_yiwym"]
-[ext_resource type="PackedScene" uid="uid://b5tdw2rs0s2fd" path="res://Scenes/ScareIconPopup.tscn" id="7_0neui"]
+[ext_resource type="PackedScene" path="res://Scenes/ScareIconPopup.tscn" id="7_0neui"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cbo24"]
 radius = 12.0
