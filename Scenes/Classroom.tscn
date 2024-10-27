@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://gjfjo506jri6"]
+[gd_scene load_steps=14 format=4 uid="uid://gjfjo506jri6"]
 
 [ext_resource type="Texture2D" uid="uid://c5fy5tp1f0icp" path="res://Assets/Tilesets/classroom tiles (1).png" id="1_d4c81"]
 [ext_resource type="Texture2D" uid="uid://bkjgto2g3r7x1" path="res://Assets/Tilesets/Classroom props (3).png" id="2_2hjot"]
@@ -142,14 +142,6 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_tpwp3")
 sources/2 = SubResource("TileSetAtlasSource_bnp4q")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fqm17"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t80y0"]
-bg_color = Color(0.935401, 0.433129, 0.0517232, 1)
-corner_detail = 11
-shadow_color = Color(0.894118, 0.431373, 0.0823529, 0.6)
-shadow_size = 1
-
 [node name="Layer Holder" type="NavigationRegion2D"]
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_pgwr2")
@@ -242,21 +234,6 @@ position = Vector2(239, -16)
 scale = Vector2(0.780247, 0.652016)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
-custom_minimum_size = Vector2(220, 4)
-offset_top = 104.0
-offset_right = 220.0
-offset_bottom = 131.0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_styles/background = SubResource("StyleBoxEmpty_fqm17")
-theme_override_styles/fill = SubResource("StyleBoxFlat_t80y0")
-value = 69.0
-show_percentage = false
 
 [node name="Player" parent="." instance=ExtResource("7_o882f")]
 

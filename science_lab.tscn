@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvc77e4hs05kb"]
+
+[ext_resource type="Texture2D" uid="uid://cibyx2ut1ghp2" path="res://Assets/Sounds/science_lab_background.png" id="1_tp3o2"]
+[ext_resource type="PackedScene" uid="uid://rp0iohdml0vp" path="res://player_character/PlayerCharacter.tscn" id="2_esf0a"]
+
+[node name="ScienceLab" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tp3o2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+collision_layer = 4
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(416, 192)
+rotation = -1.57079
+polygon = PackedVector2Array(479.998, -896.001, 480, -96.0011, 264, -94.0006, 232, -94.0005, 128, -96.0003, 128, 31.9997, 8.00008, 34, 7.99908, -414, -120.001, -414, -120, 130, 296, 129.999, 616, 129.999, 615.998, -894.001)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D"]
+polygon = PackedVector2Array(-448, -297, -448, 55, -288, 55, -288, 119, 0, 119, 0, 192, 0, 288, -576, 288, -576, -297)
+
+[node name="Player" parent="." instance=ExtResource("2_esf0a")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -32)
+zoom = Vector2(0.595, 0.595)
