@@ -1,7 +1,6 @@
-[gd_scene load_steps=37 format=4 uid="uid://gjfjo506jri6"]
+[gd_scene load_steps=41 format=4 uid="uid://gjfjo506jri6"]
 
 [ext_resource type="Texture2D" uid="uid://c5fy5tp1f0icp" path="res://Assets/Tilesets/classroom tiles (1).png" id="1_d4c81"]
-[ext_resource type="Script" path="res://Scenes/level_manager.gd" id="1_dquse"]
 [ext_resource type="Texture2D" uid="uid://bkjgto2g3r7x1" path="res://Assets/Tilesets/Classroom props (3).png" id="2_2hjot"]
 [ext_resource type="Texture2D" uid="uid://du6rxtjwahmn2" path="res://Assets/Tilesets/floor2.png" id="2_i2hw8"]
 [ext_resource type="Texture2D" uid="uid://cmxuq1bmdv20" path="res://Assets/Tilesets/sciencelab/locker corridor.png" id="4_ft12y"]
@@ -28,8 +27,13 @@
 [ext_resource type="Texture2D" uid="uid://425fr4pfoj0" path="res://Assets/Tilesets/sciencelab/becker small 2.png" id="26_r12ph"]
 [ext_resource type="PackedScene" uid="uid://bluuvti72vvxq" path="res://Assets/animations/Bat.tscn" id="27_63gy2"]
 [ext_resource type="Texture2D" uid="uid://cjx48axgwvvam" path="res://Assets/Tilesets/classroom/window.png" id="27_iv1mo"]
-[ext_resource type="PackedScene" path="res://science_table.tscn" id="28_2q3if"]
-[ext_resource type="PackedScene" path="res://Blackboard.tscn" id="29_fyk10"]
+[ext_resource type="PackedScene" uid="uid://dqw6o4n44j6q2" path="res://science_table.tscn" id="28_2q3if"]
+[ext_resource type="PackedScene" uid="uid://cndpfq2wnnvvo" path="res://Blackboard.tscn" id="29_fyk10"]
+[ext_resource type="Texture2D" uid="uid://hdcicttkopde" path="res://Assets/Tilesets/sciencelab/becker large 1.png" id="30_wc35p"]
+[ext_resource type="Texture2D" uid="uid://iptvsaxpavx1" path="res://Assets/Tilesets/sciencelab/becker medium.png" id="31_se5od"]
+[ext_resource type="Texture2D" uid="uid://b7gl6eru005ya" path="res://Assets/Tilesets/sciencelab/becker small 3.png" id="32_m8l5y"]
+[ext_resource type="Texture2D" uid="uid://c6kb4xv8ify5w" path="res://Assets/Tilesets/sciencelab/pc screen 1.png" id="33_bepxs"]
+[ext_resource type="Texture2D" uid="uid://dtgf1q5hk600e" path="res://Assets/Tilesets/sciencelab/stool.png" id="34_8gp17"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_pgwr2"]
 vertices = PackedVector2Array(268, -86, 394, -93, 446, -93, 381, -57, 281, -57, 207, -59, 381, 33, 678, 54.9609, -389.938, 52.0234, 329, 33, 207, 31, 155, 31, 678, -266, 17, -123, 17, 9, -20.5703, -97, -21, -113, -21.2266, -69, -20.5703, -1, -21, -17, 446, -183, -308.57, -1, -284.461, -22.2578, -284.461, 8.82031, -309.227, 27, -117.227, -165, -116.57, -193, -25, -241, -25, -157, -54.4063, -119.258, -88.4609, -119.258, -212.57, -193, -185.461, -214.258, -185.461, -183.18, -213.227, -165, -212.57, -1, -185.461, -22.2578, -185.461, 8.82031, -213.227, 27, -212.57, -97, -185.461, -119.258, -185.461, -88.1797, -213.227, -69, -116.57, -97, -88.4609, -88.1797, -117.227, -69, -308.57, -193, -284.461, -217.258, -284.461, -186.18, -309.227, -165, -116.57, -1, -91.4609, -25.2578, -91.4609, 5.82031, -117.227, 27, -21.2266, 27, 54, 9, 155, -14, 107, -14, 54, -123, 107, -59, 31, -157, 31, -241, 168, -176, 168, -131, 268, -176, 346, -138, 329, -12, 281, -12, 216, -86, 394, -138, 346, -183, -117, -193, -117, -209, -151.406, -209, -151.406, -214.258, -213, -193, -213, -209, -250.406, -209, -250.406, -217.258, -309, -193, -309, -209, -347.406, -209, -347.406, -217.258, -381.461, -186.18, -357, -186.18, -357, -165, -381.461, -22.2578, -261, -186.18, -261, -165, -284.461, -119.258, -213, -113, -165, -183.18, -165, -165, 216, -131, -21, -97, -54.4063, -113, -117, -97, -117, -113, -151.406, -113, -151.406, -119.258, -213, -97, -250.406, -113, -250.406, -119.258, -309, -17, -284.461, -88.1797, -261, -88.1797, -261, -69, -309, -1, -213, -17, -165, -88.1797, -165, -69, -117, -17, -69, -88.1797, -69, -69, -21, -1, -57.4063, -17, -57.4063, -25.2578, -117, -1, -151.406, -17, -151.406, -22.2578, -213, -1, -250.406, -17, -250.406, -22.2578, -347.406, -17, -347.406, -22.2578, -381.461, 8.82031, -357, 8.82031, -357, 27, -261, 8.82031, -261, 27, -165, 8.82031, -165, 27, -69, 5.82031, -69, 27, -388.063, -266, -381.461, -217.258)
@@ -176,9 +180,6 @@ sources/32 = SubResource("TileSetAtlasSource_gqwtl")
 [node name="Layer Holder" type="NavigationRegion2D"]
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_pgwr2")
-script = ExtResource("1_dquse")
-_game_over_scene = "res://menu/game_over.tscn"
-_clear_level_scene = "res://menu/MainMenu.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(145, -81)
@@ -491,3 +492,86 @@ position = Vector2(396, -104)
 
 [node name="Node2D7" parent="." instance=ExtResource("29_fyk10")]
 position = Vector2(37, -56)
+
+[node name="BeckerLarge1" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(320, -44)
+texture = ExtResource("30_wc35p")
+
+[node name="BeckerMedium" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(354, -13)
+texture = ExtResource("31_se5od")
+
+[node name="Chem5" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(138, -42)
+texture = ExtResource("12_05v7q")
+
+[node name="BeckerSmall3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(168, -38)
+texture = ExtResource("32_m8l5y")
+
+[node name="Cauldron Red6" parent="." instance=ExtResource("18_ihkjd")]
+z_index = 1
+position = Vector2(182, -20)
+frame_progress = 0.31028
+
+[node name="Cauldron Red7" parent="." instance=ExtResource("17_fj1dn")]
+z_index = 1
+position = Vector2(353, -47)
+frame_progress = 0.370356
+
+[node name="Cauldron Red8" parent="." instance=ExtResource("20_if5j2")]
+z_index = 1
+position = Vector2(241, -166)
+frame_progress = 0.429603
+
+[node name="Chem6" type="Sprite2D" parent="."]
+position = Vector2(241, -120)
+texture = ExtResource("23_dbcll")
+
+[node name="Chem7" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(240, -136)
+texture = ExtResource("12_05v7q")
+
+[node name="Chem8" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(373, -162)
+texture = ExtResource("22_vu6gj")
+
+[node name="BeckerSmall4" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(404, -166)
+texture = ExtResource("26_r12ph")
+
+[node name="Pumpkin5" type="Sprite2D" parent="."]
+position = Vector2(419, -135)
+texture = ExtResource("12_3i4dm")
+
+[node name="PcScreen1" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(202, -162)
+texture = ExtResource("33_bepxs")
+
+[node name="Stool" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(213, -132)
+texture = ExtResource("34_8gp17")
+
+[node name="Stool2" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(157, -16)
+texture = ExtResource("34_8gp17")
+
+[node name="Stool3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(330, -16)
+texture = ExtResource("34_8gp17")
+
+[node name="Stool4" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(399, -141)
+texture = ExtResource("34_8gp17")
