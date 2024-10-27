@@ -24,7 +24,7 @@ gdscript/warnings/untyped_declaration=2
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/always_on_top=true
+window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [global_group]
