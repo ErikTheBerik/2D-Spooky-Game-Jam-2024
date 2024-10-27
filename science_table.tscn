@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqw6o4n44j6q2"]
+
+[ext_resource type="Texture2D" uid="uid://gi4p04mftck4" path="res://Assets/Tilesets/sciencelab/table left.png" id="1_ii16s"]
+
+[node name="Node2D" type="StaticBody2D"]
+collision_layer = 5
+
+[node name="TableLeft" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_ii16s")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+light_mask = 4
+visibility_layer = 0
+position = Vector2(0, -32)
+polygon = PackedVector2Array(-40, -37, -40, -12, 8, -12, 8, 33, 40, 33, 40, -37)

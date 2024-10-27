@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cndpfq2wnnvvo"]
+
+[ext_resource type="Texture2D" uid="uid://pb5i2if7qkgf" path="res://Assets/Icons/freestanding blackboard.png" id="1_5ak5k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sycs7"]
+size = Vector2(17, 112)
+
+[node name="Node2D" type="StaticBody2D"]
+collision_layer = 5
+
+[node name="FreestandingBlackboard" type="Sprite2D" parent="."]
+texture = ExtResource("1_5ak5k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -1)
+shape = SubResource("RectangleShape2D_sycs7")
