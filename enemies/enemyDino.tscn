@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://2p45tn6p2kci" path="res://Scenes/ScareIconPopup.tscn" id="8_xjsak"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cbo24"]
-radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_23xlk"]
 radius = 50.0
@@ -289,7 +288,7 @@ color = Color(0.246022, 0.66931, 0.876344, 0.686275)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 5.0
 target_desired_distance = 5.0
-debug_enabled = true
+path_postprocessing = 1
 debug_use_custom = true
 debug_path_custom_color = Color(0.91375, 0.332255, 0.161062, 1)
 

@@ -18,9 +18,28 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("Scare")):
-		for enemy in m_Enemies:
-			enemy.SetState(Enemy.State.Scared)
+		if (m_Enemies.size() == 0):
+			return;
+		
+		m_Character.isScaring = true;
+		m_Character.animation.play("scare");
+		var tween := get_tree().create_tween().bind_node(self)
+		tween.tween_property(m_Character.animation, "scale", Vector2(2.0, 2.0), 0.7).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property(m_Character.animation, "scale", Vector2(1.0, 1.0), 0.2).set_trans(Tween.TRANS_EXPO)
+		tween.tween_callback(ResetScare)
 
+		for enemy in m_Enemies:
+			var dirToEnemy := global_position.direction_to(enemy.global_position);
+			if Vector2.RIGHT.dot(dirToEnemy) < 0:
+				m_Character.animation.flip_h = true;
+				
+			enemy.SetState(Enemy.State.Scared)
+			
+		m_Enemies.clear();
+
+func ResetScare() -> void:
+	m_Character.isScaring = false
+	
 func IsSneaking(enemy: Enemy) -> bool:
 	var dir := m_Character.velocity.normalized();
 	if (dir == Vector2.ZERO):
@@ -35,16 +54,13 @@ func IsSneaking(enemy: Enemy) -> bool:
 	var dot := dir.dot(dirToEnemy);
 	return dot >= 0.3;
 		
-func _on_body_entered(body: Enemy) -> void:
-	if (body && body.is_in_group("Enemy")):
+func _on_body_entered(body: Node2D) -> void:
+	if (body.is_in_group("Enemy")):
 		body.scare_icon.visible = true;
 		m_Enemies.push_back(body)
 		
 
-func _on_body_exited(body: Enemy) -> void:
-	if (!body):
-		return;
-		
+func _on_body_exited(body: Node2D) -> void:
 	var index := m_Enemies.find(body);
 	if (index != -1):
 		body.scare_icon.visible = false;
