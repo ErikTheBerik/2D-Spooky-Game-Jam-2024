@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://df1584rd83crv" path="res://enemies/enemyDino.tscn" id="5_1qfre"]
 [ext_resource type="PackedScene" uid="uid://0y5axqj7cddd" path="res://enemies/enemyGrim.tscn" id="6_wxqkk"]
 [ext_resource type="PackedScene" uid="uid://8ybulnv0i1xe" path="res://enemies/enemyWitch.tscn" id="7_mxi2b"]
-[ext_resource type="PackedScene" uid="uid://rp0iohdml0vp" path="res://Scenes/PlayerCharacter.tscn" id="7_o882f"]
+[ext_resource type="PackedScene" uid="uid://rp0iohdml0vp" path="res://player_character/PlayerCharacter.tscn" id="7_o882f"]
 [ext_resource type="PackedScene" uid="uid://d0oifnnuugkhj" path="res://Scenes/Chair.tscn" id="8_p0km3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_pgwr2"]
