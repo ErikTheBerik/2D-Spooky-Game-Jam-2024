@@ -8,12 +8,17 @@ var m_Speed := 0.0;
 var m_SpeedOverride := 0.0
 @onready var animation: AnimatedSprite2D = $Animation
 
-var epsilon := 0.5; # close enough to 0
+var epsilon := 0.5; # close enough to 0s
 var isScaring := false;
+var detected := false;
 
 func _physics_process(delta: float) -> void:
+	if (detected):
+		return;
+		
 	if (!isScaring):
 		animation.flip_h = false;
+		
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	var isAccelerating := direction != Vector2.ZERO;
 

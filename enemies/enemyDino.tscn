@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://df1584rd83crv"]
+[gd_scene load_steps=42 format=3 uid="uid://df1584rd83crv"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_w7cni"]
 [ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="2_5lwqy"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cggh1vamle6xt" path="res://Assets/Spritesheets/dino-sidewalk.png" id="6_vqqa1"]
 [ext_resource type="Texture2D" uid="uid://d3beykjikoxf4" path="res://Assets/Spritesheets/dino-upwalk.png" id="7_u25u6"]
 [ext_resource type="PackedScene" uid="uid://2p45tn6p2kci" path="res://Scenes/ScareIconPopup.tscn" id="8_xjsak"]
+[ext_resource type="PackedScene" uid="uid://b27lhyu6412lp" path="res://Assets/VFX/PlayerDetectedVFX.tscn" id="9_uwsb1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cbo24"]
 
@@ -296,6 +297,9 @@ debug_path_custom_color = Color(0.91375, 0.332255, 0.161062, 1)
 sprite_frames = SubResource("SpriteFrames_dten2")
 animation = &"walk_down"
 offset = Vector2(0, -8)
+
+[node name="Exclamation" parent="." instance=ExtResource("9_uwsb1")]
+offset = Vector2(0, -80)
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
 [connection signal="body_exited" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_exited"]

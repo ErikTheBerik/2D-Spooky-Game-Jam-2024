@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://fuof5dmuknpo"]
+[gd_scene load_steps=44 format=3 uid="uid://fuof5dmuknpo"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_jvum1"]
 [ext_resource type="Texture2D" uid="uid://drccsh5vjynjp" path="res://Assets/Spritesheets/ghost-Idle.png" id="3_bmc6u"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bxutpgdynjtq4" path="res://Assets/Spritesheets/ghost-Sidewalk.png" id="6_dho1y"]
 [ext_resource type="Texture2D" uid="uid://0bylppkw53kt" path="res://Assets/Spritesheets/ghost-Backwalk.png" id="7_l6hif"]
 [ext_resource type="PackedScene" uid="uid://2p45tn6p2kci" path="res://Scenes/ScareIconPopup.tscn" id="8_sfa5t"]
+[ext_resource type="PackedScene" uid="uid://b27lhyu6412lp" path="res://Assets/VFX/PlayerDetectedVFX.tscn" id="9_smwjf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cbo24"]
 radius = 9.0
@@ -309,8 +310,11 @@ debug_path_custom_color = Color(0.91375, 0.332255, 0.161062, 1)
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dten2")
-animation = &"walk_up"
+animation = &"idle"
 offset = Vector2(0, -8)
+
+[node name="Exclamation" parent="." instance=ExtResource("9_smwjf")]
+offset = Vector2(0, -75)
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
 [connection signal="body_exited" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_exited"]

@@ -6,11 +6,13 @@ enum State {
 	Idle,
 	Walking,
 	Talking,
-	Scared
+	Scared,
+	PlayerDetected
 }
 
 @export var MIN_SPEED: float = 100.0
 @export var MAX_SPEED: float = 200.0
+@export var DETECTION_TIME: float = 0.5;
 
 @export var ROTATION_SPEED: float= 5.0
 @export var alert_color: Color
@@ -38,8 +40,10 @@ enum State {
 @onready var m_Speed := randf_range(MIN_SPEED, MAX_SPEED)
 @onready var animation: AnimatedSprite2D = $Animation
 @onready var scare_icon: Sprite2D = $ScareIcon
+@onready var exclamation: Sprite2D = $Exclamation
 
-
+var m_DetectionValue := 0.0;
+var m_Detecting := false;
 var pointRadius: float = 10.0;
 
 var m_State: State = State.Idle;
@@ -50,6 +54,7 @@ var m_TargetPos := Vector2.ZERO;
 var m_Height := 0.0;
 
 func _ready() -> void:
+	exclamation.visible = false;
 	scare_icon.visible = false
 	m_Direction = Vector2.RIGHT;
 	vision_renderer.color = vision_color
@@ -60,6 +65,7 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return;
 	
+	ProcessDetection(delta)
 	animation.flip_h = false;
 	
 	match m_State:
@@ -72,6 +78,75 @@ func _process(delta: float) -> void:
 		State.Scared:
 			return;	
 	
+func ProcessDetection(delta: float) -> void:
+	if (m_State == State.PlayerDetected or m_State == State.Scared):
+		return;
+		
+	if (m_Detecting):
+		m_DetectionValue += delta;
+		if (m_DetectionValue >= DETECTION_TIME):
+			get_tree().call_group("Enemy", "OnDetect")
+	else:
+		m_DetectionValue -= delta;
+		m_DetectionValue = maxf(0.0, m_DetectionValue);	
+		
+	vision_renderer.color = lerp(vision_color, alert_color, m_DetectionValue/DETECTION_TIME)
+		
+func OnDetect() -> void:
+	SetState(State.PlayerDetected)
+	ClearNodes();
+	velocity = Vector2.ZERO;
+	animation.stop();
+	vision_renderer.color = alert_color;
+	m_DetectionValue = DETECTION_TIME;
+	var tween := TweenExclamation(20);
+	
+	
+func TweenExclamation(height: float) -> Tween:
+	exclamation.visible = true;
+	var pos := exclamation.position
+	var scale := exclamation.scale;
+	var tween := get_tree().create_tween().bind_node(self);
+	
+	tween.tween_property(exclamation, "position", pos + Vector2(0.0, -35.0), 0.8).set_trans(Tween.TRANS_ELASTIC);
+	tween.parallel().tween_property(exclamation, "scale", scale*1.8, 0.8).set_trans(Tween.TRANS_ELASTIC);
+	tween.parallel().tween_property(animation, "position", pos + Vector2(0.0, -height), 0.8).set_trans(Tween.TRANS_ELASTIC);
+	
+	tween.tween_property(exclamation, "position", pos, 0.3).set_trans(Tween.TRANS_LINEAR);
+	tween.parallel().tween_property(exclamation, "scale", scale, 0.3).set_trans(Tween.TRANS_LINEAR);
+	tween.parallel().tween_property(animation, "position", pos, 0.3).set_trans(Tween.TRANS_LINEAR);
+	tween.tween_callback(TimedRestart)
+	return tween;
+	
+func TimedRestart() -> void:
+	var timer := Timer.new()
+	timer.wait_time = 1.0  # Set delay to 1 second
+	timer.one_shot = true  # Run only once
+	add_child(timer)       # Add to the scene tree
+	timer.start()
+	timer.timeout.connect(Restart);
+	
+func Restart() -> void:
+	get_tree().reload_current_scene()
+
+func Jump(height: float, tween: Tween = null) -> Tween:
+	if !tween:
+		tween = get_tree().create_tween().bind_node(self)
+		
+	var pos := animation.position
+	tween.tween_property(animation, "position", pos + Vector2(0.0, -height), 0.8).set_trans(Tween.TRANS_ELASTIC);
+	tween.tween_property(animation, "position", pos, 0.3).set_trans(Tween.TRANS_LINEAR);
+	
+	return tween;
+
+func Scare() -> void:
+	var tween := get_tree().create_tween().bind_node(self)
+	tween.tween_property($Animation, "scale", Vector2(1.0, 1.0), 0.5).set_trans(Tween.TRANS_EXPO)
+	tween.tween_callback(PlayScare)
+	tween.tween_property($Animation, "scale", Vector2(1.5, 1.5), 0.5).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Animation, "scale", Vector2(), 0.8).set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_callback(queue_free)
+
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		queue_redraw();
@@ -216,16 +291,15 @@ func OnEnteredTalking() -> void:
 	m_Timer = randf_range(MIN_TALK_TIME, MAX_TALK_TIME)
 	
 func OnEnteredScared() -> void:
+	ClearNodes();
+	Jump(35);
+	Scare();
+
+func ClearNodes() -> void:
 	$CollisionShape2D.disabled = true
 	remove_child(vision_cone)
 	remove_child(navigation)
 	remove_child(scare_icon)
-	var tween := get_tree().create_tween().bind_node(self)
-	tween.tween_property($Animation, "scale", Vector2(1.0, 1.0), 0.5).set_trans(Tween.TRANS_EXPO)
-	tween.tween_callback(PlayScare)
-	tween.tween_property($Animation, "scale", Vector2(1.5, 1.5), 0.5).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($Animation, "scale", Vector2(), 0.8).set_trans(Tween.TRANS_ELASTIC)
-	tween.tween_callback(queue_free)
 
 func PlayScare() -> void:
 	animation.play("scare")
@@ -277,8 +351,8 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 
 
 func _on_vision_cone_area_body_entered(body: Node2D) -> void:
-	vision_renderer.color = alert_color
+	m_Detecting = true;
 
 
 func _on_vision_cone_area_body_exited(body: Node2D) -> void:
-	vision_renderer.color = vision_color
+	m_Detecting = false;

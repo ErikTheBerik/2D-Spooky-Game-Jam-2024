@@ -299,7 +299,7 @@ animations = [{
 radius = 8.04241
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n0hny"]
-radius = 53.0003
+radius = 36.0
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true

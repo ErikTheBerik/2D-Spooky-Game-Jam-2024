@@ -4,16 +4,21 @@ extends Area2D
 var m_Enemies: Array[Enemy] = []
 var m_Character: Player
 
+var m_Timer: Timer = null;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	m_Character = owner;
+	m_Timer = Timer.new()
+	add_child(m_Timer);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	m_Character.m_SpeedOverride = 0.0;
+	m_Character.animation.speed_scale = 1.0;
 	for enemy in m_Enemies:
 		if IsSneaking(enemy):
 			m_Character.m_SpeedOverride = max(MIN_SCARE_SPEED, enemy.velocity.length());
+			m_Character.animation.speed_scale = 0.3;
 			return;
 
 func _process(delta: float) -> void:
@@ -36,6 +41,16 @@ func _process(delta: float) -> void:
 			enemy.SetState(Enemy.State.Scared)
 			
 		m_Enemies.clear();
+		
+		m_Timer.stop();
+		m_Timer.wait_time = 4.0
+		m_Timer.one_shot = true
+		m_Timer.timeout.connect(CheckGameEnd)
+		m_Timer.start();
+
+func CheckGameEnd() -> void:
+	if (get_tree().get_nodes_in_group("Enemy").size() == 0):
+		get_tree().reload_current_scene()
 
 func ResetScare() -> void:
 	m_Character.isScaring = false

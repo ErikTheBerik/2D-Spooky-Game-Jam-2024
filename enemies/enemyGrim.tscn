@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://0y5axqj7cddd"]
+[gd_scene load_steps=24 format=3 uid="uid://0y5axqj7cddd"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_siv2t"]
 [ext_resource type="PackedScene" uid="uid://2p45tn6p2kci" path="res://Scenes/ScareIconPopup.tscn" id="2_sykna"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c861ueacphv20" path="res://Assets/Spritesheets/grim-idle.png" id="3_8i1dt"]
 [ext_resource type="Texture2D" uid="uid://b7q0x55xk3lh6" path="res://Assets/Spritesheets/grim-scared.png" id="4_au11g"]
 [ext_resource type="Texture2D" uid="uid://cv7cuil05le2l" path="res://Assets/Spritesheets/grim-sidewalk.png" id="6_3ex61"]
+[ext_resource type="PackedScene" uid="uid://b27lhyu6412lp" path="res://Assets/VFX/PlayerDetectedVFX.tscn" id="7_1axlp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cbo24"]
 radius = 9.0
@@ -184,6 +185,10 @@ sprite_frames = SubResource("SpriteFrames_dten2")
 animation = &"walk_right"
 frame_progress = 0.281139
 offset = Vector2(0, -8)
+
+[node name="Exclamation" parent="." instance=ExtResource("7_1axlp")]
+visible = false
+offset = Vector2(-8, -80)
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
 [connection signal="body_exited" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_exited"]
