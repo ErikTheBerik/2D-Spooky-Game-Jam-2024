@@ -214,7 +214,9 @@ func OnEnteredTalking() -> void:
 	m_Timer = randf_range(MIN_TALK_TIME, MAX_TALK_TIME)
 	
 func OnEnteredScared() -> void:
-	pass;
+	animation.play("scare")
+	$CollisionShape2D.disabled = true
+	remove_child(vision_cone)
 
 func OnTargetReached() -> void:
 	SetState(State.Idle);

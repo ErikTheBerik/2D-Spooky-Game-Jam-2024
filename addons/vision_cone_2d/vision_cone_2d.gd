@@ -44,6 +44,7 @@ var _vision_points: Array[Vector2]
 var _last_position = null
 var _last_redraw_time = 0
 
+var shouldDraw := true;
 # constants for optimization
 @onready var _angle = deg_to_rad(angle_deg)
 @onready var _angle_half = _angle/2.
@@ -84,6 +85,9 @@ func calculate_vision_shape(override_static_flag = false) -> Array[Vector2]:
 	return new_vision_points
 
 func _draw():
+	if (!shouldDraw):
+		return;
+		
 	if len(_vision_points) == 0:
 		return 
 	var from = _vision_points[0]

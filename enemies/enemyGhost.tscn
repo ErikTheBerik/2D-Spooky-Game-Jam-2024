@@ -177,7 +177,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tmeom")
 }],
-"loop": true,
+"loop": false,
 "name": &"scare",
 "speed": 5.0
 }, {
@@ -309,7 +309,6 @@ debug_path_custom_color = Color(0.91375, 0.332255, 0.161062, 1)
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dten2")
 animation = &"walk_up"
-frame_progress = 0.45618
 offset = Vector2(0, -8)
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
