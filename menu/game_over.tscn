@@ -25,12 +25,12 @@ expand_mode = 3
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 273.0
-offset_top = 217.0
-offset_right = 273.0
-offset_bottom = 240.0
+offset_left = 257.0
+offset_top = 218.0
+offset_right = 257.0
+offset_bottom = 241.0
 grow_horizontal = 2
-text = "GAME OVER"
+text = "YOU GOT CAUGHT"
 fit_content = true
 scroll_active = false
 
@@ -40,8 +40,19 @@ offset_left = 289.0
 offset_top = 265.0
 offset_right = 350.0
 offset_bottom = 296.0
-text = "Return"
+text = "Try Again"
+script = ExtResource("2_wv267")
+_target_level = "res://Scenes/Classroom.tscn"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 309.0
+offset_right = 411.0
+offset_bottom = 340.0
+text = "Back To Main Menu"
 script = ExtResource("2_wv267")
 _target_level = "res://menu/MainMenu.tscn"
 
 [connection signal="pressed" from="Button" to="Button" method="OnPressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="OnPressed"]
