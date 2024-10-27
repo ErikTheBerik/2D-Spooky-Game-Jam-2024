@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://kd48ied2p8vk"]
+
+[ext_resource type="Texture2D" uid="uid://1t63h2hn642n" path="res://Assets/animations/caludron-animated-yellow.png" id="1_fk43f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuhso"]
+atlas = ExtResource("1_fk43f")
+region = Rect2(0, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qx6d"]
+atlas = ExtResource("1_fk43f")
+region = Rect2(39, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vaiq"]
+atlas = ExtResource("1_fk43f")
+region = Rect2(78, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hstmf"]
+atlas = ExtResource("1_fk43f")
+region = Rect2(117, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfh7f"]
+atlas = ExtResource("1_fk43f")
+region = Rect2(156, 0, 39, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_os6wv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuhso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qx6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vaiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hstmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfh7f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Cauldron Red" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_os6wv")
+autoplay = "default"
+frame_progress = 0.165866
