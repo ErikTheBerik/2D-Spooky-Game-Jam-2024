@@ -86,6 +86,7 @@ func ProcessDetection(delta: float) -> void:
 		m_DetectionValue += delta;
 		if (m_DetectionValue >= DETECTION_TIME):
 			get_tree().call_group("Enemy", "OnDetect")
+			get_tree().call_group("Player", "StopFuckingMoving");
 	else:
 		m_DetectionValue -= delta;
 		m_DetectionValue = maxf(0.0, m_DetectionValue);	

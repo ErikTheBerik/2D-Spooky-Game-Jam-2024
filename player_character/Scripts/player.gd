@@ -12,6 +12,10 @@ var epsilon := 0.5; # close enough to 0s
 var isScaring := false;
 var detected := false;
 
+func StopFuckingMoving() -> void:
+	detected = true;
+	animation.stop();
+
 func _physics_process(delta: float) -> void:
 	if (detected):
 		return;

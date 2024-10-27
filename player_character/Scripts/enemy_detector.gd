@@ -40,10 +40,14 @@ func _process(delta: float) -> void:
 				
 			enemy.SetState(Enemy.State.Scared)
 			
+		var scared := m_Enemies.size();
+		if (get_tree().get_nodes_in_group("Enemy").size() <= scared):
+			m_Character.StopFuckingMoving();
+		
 		m_Enemies.clear();
 		
 		m_Timer.stop();
-		m_Timer.wait_time = 4.0
+		m_Timer.wait_time = 2.0
 		m_Timer.one_shot = true
 		m_Timer.timeout.connect(CheckGameEnd)
 		m_Timer.start();
