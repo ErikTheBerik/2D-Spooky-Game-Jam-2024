@@ -39,6 +39,7 @@ enum State {
 @onready var animation: AnimatedSprite2D = $Animation
 @onready var scare_icon: Sprite2D = $ScareIcon
 
+
 var pointRadius: float = 10.0;
 
 var m_State: State = State.Idle;
@@ -46,6 +47,7 @@ var m_Timer: float = 0.0;
 var m_GoingToA: bool = true;
 var m_Direction := Vector2.ZERO;
 var m_TargetPos := Vector2.ZERO;
+var m_Height := 0.0;
 
 func _ready() -> void:
 	scare_icon.visible = false
@@ -94,7 +96,7 @@ func _physics_process(delta: float) -> void:
 		State.Talking:
 			return;
 		State.Scared:
-			return;
+			ProcessScared(delta);
 			
 	move_and_slide()
 
@@ -214,10 +216,20 @@ func OnEnteredTalking() -> void:
 	m_Timer = randf_range(MIN_TALK_TIME, MAX_TALK_TIME)
 	
 func OnEnteredScared() -> void:
-	animation.play("scare")
 	$CollisionShape2D.disabled = true
 	remove_child(vision_cone)
+	remove_child(navigation)
+	remove_child(scare_icon)
+	var tween := get_tree().create_tween().bind_node(self)
+	tween.tween_property($Animation, "scale", Vector2(1.0, 1.0), 0.5).set_trans(Tween.TRANS_EXPO)
+	tween.tween_callback(PlayScare)
+	tween.tween_property($Animation, "scale", Vector2(1.5, 1.5), 0.5).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Animation, "scale", Vector2(), 0.8).set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_callback(queue_free)
 
+func PlayScare() -> void:
+	animation.play("scare")
+	
 func OnTargetReached() -> void:
 	SetState(State.Idle);
 	
@@ -244,6 +256,9 @@ func ProcessWalking(delta: float) -> void:
 		navigation.set_velocity_forced(newVelocity)
 	else:
 		velocity = newVelocity
+		
+func ProcessScared(delta: float) -> void:
+	velocity = Vector2.ZERO;
 
 func ProcessIdleAnimation(delta: float) -> void:
 	animation.play("idle")

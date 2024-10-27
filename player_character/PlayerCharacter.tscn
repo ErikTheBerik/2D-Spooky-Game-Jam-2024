@@ -209,7 +209,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vga5y")
 }],
-"loop": true,
+"loop": false,
 "name": &"scare",
 "speed": 8.0
 }, {
@@ -295,9 +295,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jyfrj"]
-radius = 7.0
-height = 24.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_su6s2"]
+radius = 8.04241
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n0hny"]
 radius = 53.0003
@@ -309,17 +308,18 @@ collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_igct0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hv48t")
-animation = &"walk_up"
-frame = 7
-frame_progress = 0.54361
+animation = &"scare"
+autoplay = "idle"
+frame = 8
+frame_progress = 1.0
 offset = Vector2(3.79, -10.48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.02)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_jyfrj")
+shape = SubResource("CircleShape2D_su6s2")
 
 [node name="EnemyDetector" type="Area2D" parent="."]
 collision_layer = 0
