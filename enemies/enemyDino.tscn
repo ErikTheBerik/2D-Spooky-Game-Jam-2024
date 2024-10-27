@@ -1,9 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://df1584rd83crv"]
+[gd_scene load_steps=41 format=3 uid="uid://df1584rd83crv"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_w7cni"]
 [ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="2_5lwqy"]
 [ext_resource type="Texture2D" uid="uid://jv1w2avwdb4n" path="res://Assets/Spritesheets/dino-idle.png" id="3_eq4hm"]
 [ext_resource type="Texture2D" uid="uid://pld3ola0rij8" path="res://Assets/Spritesheets/dino-scared.png" id="4_hc5j4"]
+[ext_resource type="Texture2D" uid="uid://dsk3ijdlp330p" path="res://Assets/Spritesheets/dino-downwalk.png" id="5_1b0vt"]
+[ext_resource type="Texture2D" uid="uid://cggh1vamle6xt" path="res://Assets/Spritesheets/dino-sidewalk.png" id="6_vqqa1"]
+[ext_resource type="Texture2D" uid="uid://d3beykjikoxf4" path="res://Assets/Spritesheets/dino-upwalk.png" id="7_u25u6"]
+[ext_resource type="PackedScene" uid="uid://b5tdw2rs0s2fd" path="res://Scenes/ScareIconPopup.tscn" id="8_xjsak"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cbo24"]
 radius = 12.0
@@ -43,6 +47,90 @@ region = Rect2(0, 0, 39, 39)
 atlas = ExtResource("4_hc5j4")
 region = Rect2(39, 0, 39, 39)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6535g"]
+atlas = ExtResource("5_1b0vt")
+region = Rect2(0, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y54p"]
+atlas = ExtResource("5_1b0vt")
+region = Rect2(39, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn5ke"]
+atlas = ExtResource("5_1b0vt")
+region = Rect2(78, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfuyh"]
+atlas = ExtResource("5_1b0vt")
+region = Rect2(117, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ed442"]
+atlas = ExtResource("5_1b0vt")
+region = Rect2(156, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8chrs"]
+atlas = ExtResource("5_1b0vt")
+region = Rect2(195, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwix2"]
+atlas = ExtResource("5_1b0vt")
+region = Rect2(234, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0l65"]
+atlas = ExtResource("5_1b0vt")
+region = Rect2(273, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k67gx"]
+atlas = ExtResource("6_vqqa1")
+region = Rect2(0, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipcv8"]
+atlas = ExtResource("6_vqqa1")
+region = Rect2(39, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f2wf"]
+atlas = ExtResource("6_vqqa1")
+region = Rect2(78, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24cqr"]
+atlas = ExtResource("6_vqqa1")
+region = Rect2(117, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2tk2"]
+atlas = ExtResource("6_vqqa1")
+region = Rect2(156, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yxir"]
+atlas = ExtResource("7_u25u6")
+region = Rect2(0, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5gwg"]
+atlas = ExtResource("7_u25u6")
+region = Rect2(39, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1w3q"]
+atlas = ExtResource("7_u25u6")
+region = Rect2(78, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hwbe"]
+atlas = ExtResource("7_u25u6")
+region = Rect2(117, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayrmd"]
+atlas = ExtResource("7_u25u6")
+region = Rect2(156, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_km2c7"]
+atlas = ExtResource("7_u25u6")
+region = Rect2(195, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfthd"]
+atlas = ExtResource("7_u25u6")
+region = Rect2(234, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaidn"]
+atlas = ExtResource("7_u25u6")
+region = Rect2(273, 0, 39, 39)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_dten2"]
 animations = [{
 "frames": [{
@@ -79,17 +167,80 @@ animations = [{
 "name": &"scare",
 "speed": 8.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6535g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y54p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn5ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfuyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ed442")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8chrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwix2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0l65")
+}],
 "loop": true,
 "name": &"walk_down",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k67gx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipcv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f2wf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24cqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2tk2")
+}],
 "loop": true,
 "name": &"walk_right",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yxir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5gwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1w3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hwbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayrmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_km2c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfthd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaidn")
+}],
 "loop": true,
 "name": &"walk_up",
 "speed": 10.0
@@ -134,18 +285,18 @@ color = Color(0.246022, 0.66931, 0.876344, 0.686275)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 5.0
 target_desired_distance = 5.0
-path_postprocessing = 1
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.91375, 0.332255, 0.161062, 1)
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dten2")
-animation = &"idle"
+animation = &"walk_right"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.503046
 offset = Vector2(0, -8)
+
+[node name="Scare Icon Popup" parent="." instance=ExtResource("8_xjsak")]
+position = Vector2(0, -35)
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
 [connection signal="body_exited" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_exited"]

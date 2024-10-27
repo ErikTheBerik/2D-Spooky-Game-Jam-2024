@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyib7v1kp4gcb"
-path="res://.godot/imported/Classroom props (3).png-e477064dcb63a1e24cc86e2186bd4120.ctex"
+uid="uid://dsk3ijdlp330p"
+path="res://.godot/imported/dino-downwalk.png-0a38677c97bd9ed2de5ea74f65d39ab2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Classroom props (3).png"
-dest_files=["res://.godot/imported/Classroom props (3).png-e477064dcb63a1e24cc86e2186bd4120.ctex"]
+source_file="res://Assets/Spritesheets/dino-downwalk.png"
+dest_files=["res://.godot/imported/dino-downwalk.png-0a38677c97bd9ed2de5ea74f65d39ab2.ctex"]
 
 [params]
 
