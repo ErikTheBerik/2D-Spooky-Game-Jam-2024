@@ -4,10 +4,6 @@ extends Area2D
 var m_Enemies: Array[Enemy] = []
 var m_Character: Player
 
-var m_BlinkTime := 0.5;
-var m_Timer := 0.0;
-var m_ShowTooltip := false;
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	m_Character = owner;
@@ -19,6 +15,11 @@ func _physics_process(delta: float) -> void:
 		if IsSneaking(enemy):
 			m_Character.m_SpeedOverride = max(MIN_SCARE_SPEED, enemy.velocity.length());
 			return;
+
+func _process(delta: float) -> void:
+	if (Input.is_action_just_pressed("Scare")):
+		for enemy in m_Enemies:
+			enemy.SetState(Enemy.State.Scared)
 
 func IsSneaking(enemy: Enemy) -> bool:
 	var dir := m_Character.velocity.normalized();
@@ -32,21 +33,13 @@ func IsSneaking(enemy: Enemy) -> bool:
 	var dirToEnemy := m_Character.global_position.direction_to(enemyPos);
 	
 	var dot := dir.dot(dirToEnemy);
-	return dot >= 0.5;
-
-func BlinkTooltip(delta: float) -> void:
-	m_Timer -= delta;
-	if (m_Timer <= 0.0):
-		m_Timer = m_BlinkTime;
-		m_ShowTooltip = !m_ShowTooltip
-		for enemy in m_Enemies:
-			enemy.scare_icon.visible = m_ShowTooltip
+	return dot >= 0.3;
 		
-
 func _on_body_entered(body: Enemy) -> void:
 	if (body && body.is_in_group("Enemy")):
+		body.scare_icon.visible = true;
 		m_Enemies.push_back(body)
-
+		
 
 func _on_body_exited(body: Enemy) -> void:
 	if (!body):

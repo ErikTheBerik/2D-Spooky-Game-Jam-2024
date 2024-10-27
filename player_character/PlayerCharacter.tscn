@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://rp0iohdml0vp"]
 
-[ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_igct0"]
+[ext_resource type="Script" path="res://player_character/Scripts/player.gd" id="1_igct0"]
 [ext_resource type="Texture2D" uid="uid://bxy7ry1enc623" path="res://player_character/Player-idle.png" id="2_opjj1"]
-[ext_resource type="Script" path="res://Scenes/Scripts/enemy_detector.gd" id="3_7gw1g"]
+[ext_resource type="Script" path="res://player_character/Scripts/enemy_detector.gd" id="3_7gw1g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1gufn"]
 atlas = ExtResource("2_opjj1")
