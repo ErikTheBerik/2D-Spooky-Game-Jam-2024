@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgmb6dgok8ebq"]
+
+[ext_resource type="Texture2D" uid="uid://c8qi6tl2keq7b" path="res://menu/WIPTitlescreen.png" id="1_c4wti"]
+[ext_resource type="Script" path="res://menu/go_to_scene.gd" id="2_wv267"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_c4wti")
+expand_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 273.0
+offset_top = 217.0
+offset_right = 273.0
+offset_bottom = 240.0
+grow_horizontal = 2
+text = "GAME OVER"
+fit_content = true
+scroll_active = false
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 265.0
+offset_right = 350.0
+offset_bottom = 296.0
+text = "Return"
+script = ExtResource("2_wv267")
+_target_level = "res://menu/MainMenu.tscn"
+
+[connection signal="pressed" from="Button" to="Button" method="OnPressed"]

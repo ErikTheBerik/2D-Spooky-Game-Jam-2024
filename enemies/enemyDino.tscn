@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://df1584rd83crv"]
+[gd_scene load_steps=43 format=3 uid="uid://df1584rd83crv"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_w7cni"]
 [ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="2_5lwqy"]
 [ext_resource type="Texture2D" uid="uid://jv1w2avwdb4n" path="res://Assets/Spritesheets/dino-idle.png" id="3_eq4hm"]
+[ext_resource type="Texture2D" uid="uid://cjpnqlrqogbuy" path="res://Assets/VFX/shadow.png" id="4_5dk3f"]
 [ext_resource type="Texture2D" uid="uid://pld3ola0rij8" path="res://Assets/Spritesheets/dino-scared.png" id="4_hc5j4"]
 [ext_resource type="Texture2D" uid="uid://dsk3ijdlp330p" path="res://Assets/Spritesheets/dino-downwalk.png" id="5_1b0vt"]
 [ext_resource type="Texture2D" uid="uid://cggh1vamle6xt" path="res://Assets/Spritesheets/dino-sidewalk.png" id="6_vqqa1"]
@@ -292,6 +293,10 @@ target_desired_distance = 5.0
 path_postprocessing = 1
 debug_use_custom = true
 debug_path_custom_color = Color(0.91375, 0.332255, 0.161062, 1)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("4_5dk3f")
+offset = Vector2(2, -4)
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dten2")

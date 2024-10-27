@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5x233oll062q"]
+
+[ext_resource type="Texture2D" uid="uid://c8qi6tl2keq7b" path="res://menu/WIPTitlescreen.png" id="1_cj4l8"]
+[ext_resource type="AudioStream" uid="uid://d1atpnk661den" path="res://Assets/Sounds/mystery-box-v-draganov-main-version-00-40-18716.mp3" id="2_k0vaw"]
+[ext_resource type="Script" path="res://menu/go_to_scene.gd" id="2_kge3r"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cj4l8")
+expand_mode = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 291.0
+offset_top = 246.0
+offset_right = 338.0
+offset_bottom = 277.0
+size_flags_vertical = 4
+text = "PLAY"
+script = ExtResource("2_kge3r")
+_target_level = "res://Scenes/Classroom.tscn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_k0vaw")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="Button" to="Button" method="OnPressed"]

@@ -9,6 +9,9 @@ var m_Timer: Timer = null;
 func _ready() -> void:
 	m_Character = owner;
 	m_Timer = Timer.new()
+	m_Timer.wait_time = 2.0
+	m_Timer.one_shot = true
+	m_Timer.timeout.connect(CheckGameEnd)
 	add_child(m_Timer);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,19 +45,16 @@ func _process(delta: float) -> void:
 			
 		var scared := m_Enemies.size();
 		if (get_tree().get_nodes_in_group("Enemy").size() <= scared):
-			m_Character.StopFuckingMoving();
+			m_Character.detected = true
 		
 		m_Enemies.clear();
 		
 		m_Timer.stop();
-		m_Timer.wait_time = 2.0
-		m_Timer.one_shot = true
-		m_Timer.timeout.connect(CheckGameEnd)
 		m_Timer.start();
 
 func CheckGameEnd() -> void:
 	if (get_tree().get_nodes_in_group("Enemy").size() == 0):
-		get_tree().reload_current_scene()
+		get_tree().root.get_child(0).OnLevelCleared();
 
 func ResetScare() -> void:
 	m_Character.isScaring = false

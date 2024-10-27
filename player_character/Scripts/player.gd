@@ -12,10 +12,14 @@ var epsilon := 0.5; # close enough to 0s
 var isScaring := false;
 var detected := false;
 
+var m_Keys: Array[Key] = [KEY_UP, KEY_UP, KEY_DOWN, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_LEFT, KEY_RIGHT, KEY_B, KEY_A, KEY_ENTER]
+var m_KeyIndex: int = 0;
+
 func StopFuckingMoving() -> void:
 	detected = true;
 	animation.stop();
-
+	Input.is_physical_key_pressed(KEY_UP)
+	
 func _physics_process(delta: float) -> void:
 	if (detected):
 		return;
@@ -41,6 +45,29 @@ func _physics_process(delta: float) -> void:
 			PlayWalkAnimation();
 		
 	move_and_slide()
+
+func _input(event: InputEvent) -> void:
+	var just_pressed := event.is_pressed() and not event.is_echo()
+	if (!just_pressed):
+		return;
+	
+	var key := m_Keys[m_KeyIndex];			
+	if Input.is_physical_key_pressed(key):
+		m_KeyIndex += 1;
+		if (m_KeyIndex >= m_Keys.size()):
+			DoSomeMagic();
+			m_KeyIndex = 0
+	else:
+		m_KeyIndex = 0
+
+func DoSomeMagic() -> void:
+	var tween := get_tree().create_tween().bind_node(self)
+	tween.tween_property($Animation, "scale", Vector2(2.0, 2.0), 0.5).set_trans(Tween.TRANS_ELASTIC)
+	tween.parallel().tween_property($Animation, "rotation", deg_to_rad(360), 0.5);
+	tween.tween_property($Animation, "scale", Vector2(1.0, 1.0), 0.2).set_trans(Tween.TRANS_EXPO)
+	tween.parallel().tween_property($Animation, "rotation", deg_to_rad(0), 0.5);
+	
+	get_tree().call_group("Enemy", "DoSomeMagic");
 
 func PlayWalkAnimation() -> void:
 	var animDir := GetDirectionString();

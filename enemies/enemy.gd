@@ -12,7 +12,6 @@ enum State {
 
 @export var MIN_SPEED: float = 100.0
 @export var MAX_SPEED: float = 200.0
-@export var DETECTION_TIME: float = 0.5;
 
 @export var ROTATION_SPEED: float= 5.0
 @export var alert_color: Color
@@ -52,6 +51,8 @@ var m_GoingToA: bool = true;
 var m_Direction := Vector2.ZERO;
 var m_TargetPos := Vector2.ZERO;
 var m_Height := 0.0;
+var DETECTION_TIME: float = 0.3;
+
 
 func _ready() -> void:
 	exclamation.visible = false;
@@ -100,10 +101,10 @@ func OnDetect() -> void:
 	animation.stop();
 	vision_renderer.color = alert_color;
 	m_DetectionValue = DETECTION_TIME;
-	var tween := TweenExclamation(20);
+	TweenExclamation(20);
 	
 	
-func TweenExclamation(height: float) -> Tween:
+func TweenExclamation(height: float) -> void:
 	exclamation.visible = true;
 	var pos := exclamation.position
 	var scale := exclamation.scale;
@@ -117,7 +118,6 @@ func TweenExclamation(height: float) -> Tween:
 	tween.parallel().tween_property(exclamation, "scale", scale, 0.3).set_trans(Tween.TRANS_LINEAR);
 	tween.parallel().tween_property(animation, "position", pos, 0.3).set_trans(Tween.TRANS_LINEAR);
 	tween.tween_callback(TimedRestart)
-	return tween;
 	
 func TimedRestart() -> void:
 	var timer := Timer.new()
@@ -127,8 +127,16 @@ func TimedRestart() -> void:
 	timer.start()
 	timer.timeout.connect(Restart);
 	
+	
+func DoSomeMagic() -> void:
+	var tween := Jump(100);
+	tween.tween_property($Animation, "scale", Vector2(2.0, 2.0), 0.5).set_trans(Tween.TRANS_ELASTIC)
+	tween.parallel().tween_property($Animation, "rotation", deg_to_rad(360), 0.5);
+	tween.tween_property($Animation, "scale", Vector2(1.0, 1.0), 0.2).set_trans(Tween.TRANS_EXPO)
+	tween.parallel().tween_property($Animation, "rotation", deg_to_rad(0), 0.5);
+	
 func Restart() -> void:
-	get_tree().reload_current_scene()
+	get_tree().root.get_child(0).OnGameOver();
 
 func Jump(height: float, tween: Tween = null) -> Tween:
 	if !tween:

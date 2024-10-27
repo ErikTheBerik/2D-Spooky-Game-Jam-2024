@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://gjfjo506jri6"]
+[gd_scene load_steps=15 format=4 uid="uid://gjfjo506jri6"]
 
 [ext_resource type="Texture2D" uid="uid://c5fy5tp1f0icp" path="res://Assets/Tilesets/classroom tiles (1).png" id="1_d4c81"]
+[ext_resource type="Script" path="res://Scenes/level_manager.gd" id="1_dquse"]
 [ext_resource type="Texture2D" uid="uid://bkjgto2g3r7x1" path="res://Assets/Tilesets/Classroom props (3).png" id="2_2hjot"]
 [ext_resource type="PackedScene" uid="uid://fuof5dmuknpo" path="res://enemies/enemyGhost.tscn" id="4_sh28g"]
 [ext_resource type="PackedScene" uid="uid://df1584rd83crv" path="res://enemies/enemyDino.tscn" id="5_1qfre"]
@@ -144,6 +145,9 @@ sources/2 = SubResource("TileSetAtlasSource_bnp4q")
 [node name="Layer Holder" type="NavigationRegion2D"]
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_pgwr2")
+script = ExtResource("1_dquse")
+_game_over_scene = "res://menu/game_over.tscn"
+_clear_level_scene = "res://menu/MainMenu.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(131, -120)

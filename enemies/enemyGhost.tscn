@@ -1,9 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://fuof5dmuknpo"]
+[gd_scene load_steps=45 format=3 uid="uid://fuof5dmuknpo"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_jvum1"]
 [ext_resource type="Texture2D" uid="uid://drccsh5vjynjp" path="res://Assets/Spritesheets/ghost-Idle.png" id="3_bmc6u"]
 [ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="3_i7rw8"]
 [ext_resource type="Texture2D" uid="uid://cg0srtbd1878c" path="res://Assets/Spritesheets/ghost-scared.png" id="4_p6072"]
+[ext_resource type="Texture2D" uid="uid://cjpnqlrqogbuy" path="res://Assets/VFX/shadow.png" id="4_yndsk"]
 [ext_resource type="Texture2D" uid="uid://c2huje5trhxxd" path="res://Assets/Spritesheets/ghost-DownWalk.png" id="5_xm8lo"]
 [ext_resource type="Texture2D" uid="uid://bxutpgdynjtq4" path="res://Assets/Spritesheets/ghost-Sidewalk.png" id="6_dho1y"]
 [ext_resource type="Texture2D" uid="uid://0bylppkw53kt" path="res://Assets/Spritesheets/ghost-Backwalk.png" id="7_l6hif"]
@@ -307,6 +308,10 @@ target_desired_distance = 5.0
 path_postprocessing = 1
 debug_use_custom = true
 debug_path_custom_color = Color(0.91375, 0.332255, 0.161062, 1)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("4_yndsk")
+offset = Vector2(0, -4)
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dten2")
