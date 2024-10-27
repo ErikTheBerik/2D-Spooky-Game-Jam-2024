@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="2_ualbs"]
 [ext_resource type="Texture2D" uid="uid://c861ueacphv20" path="res://Assets/Spritesheets/grim-idle.png" id="3_8i1dt"]
 [ext_resource type="Texture2D" uid="uid://b7q0x55xk3lh6" path="res://Assets/Spritesheets/grim-scared.png" id="4_au11g"]
+[ext_resource type="Texture2D" uid="uid://cf45oj4nj8y3n" path="res://Assets/Spritesheets/grim-downwalk.png" id="6_0me5u"]
 [ext_resource type="Texture2D" uid="uid://cv7cuil05le2l" path="res://Assets/Spritesheets/grim-sidewalk.png" id="6_3ex61"]
 [ext_resource type="PackedScene" uid="uid://b27lhyu6412lp" path="res://Assets/VFX/PlayerDetectedVFX.tscn" id="7_1axlp"]
 
@@ -42,6 +43,34 @@ region = Rect2(0, 0, 39, 39)
 atlas = ExtResource("4_au11g")
 region = Rect2(39, 0, 39, 39)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_73b4p"]
+atlas = ExtResource("6_0me5u")
+region = Rect2(0, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8wt3"]
+atlas = ExtResource("6_0me5u")
+region = Rect2(39, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y21o0"]
+atlas = ExtResource("6_0me5u")
+region = Rect2(78, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y756i"]
+atlas = ExtResource("6_0me5u")
+region = Rect2(117, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgsc6"]
+atlas = ExtResource("6_0me5u")
+region = Rect2(156, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or0li"]
+atlas = ExtResource("6_0me5u")
+region = Rect2(195, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu66w"]
+atlas = ExtResource("6_0me5u")
+region = Rect2(234, 0, 39, 39)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6q6fv"]
 atlas = ExtResource("6_3ex61")
 region = Rect2(0, 0, 39, 39)
@@ -66,6 +95,34 @@ region = Rect2(156, 0, 39, 39)
 atlas = ExtResource("6_3ex61")
 region = Rect2(195, 0, 39, 39)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjale"]
+atlas = ExtResource("8_346oo")
+region = Rect2(0, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur4vf"]
+atlas = ExtResource("8_346oo")
+region = Rect2(39, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_td57n"]
+atlas = ExtResource("8_346oo")
+region = Rect2(78, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mk4a"]
+atlas = ExtResource("8_346oo")
+region = Rect2(117, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj6dp"]
+atlas = ExtResource("8_346oo")
+region = Rect2(156, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lykks"]
+atlas = ExtResource("8_346oo")
+region = Rect2(195, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2waw"]
+atlas = ExtResource("8_346oo")
+region = Rect2(234, 0, 39, 39)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_dten2"]
 animations = [{
 "frames": [{
@@ -86,7 +143,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -99,10 +156,31 @@ animations = [{
 "name": &"scare",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73b4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8wt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y21o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y756i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgsc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or0li")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu66w")
+}],
 "loop": true,
 "name": &"walk_down",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -125,12 +203,33 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_right",
-"speed": 5.0
+"speed": 8.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjale")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur4vf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_td57n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mk4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj6dp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lykks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2waw")
+}],
 "loop": true,
 "name": &"walk_up",
-"speed": 10.0
+"speed": 8.0
 }]
 
 [node name="Grim" type="CharacterBody2D" groups=["Enemy"]]
@@ -182,8 +281,7 @@ debug_path_custom_color = Color(0.91375, 0.332255, 0.161062, 1)
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dten2")
-animation = &"walk_right"
-frame_progress = 0.281139
+animation = &"idle"
 offset = Vector2(0, -8)
 
 [node name="Exclamation" parent="." instance=ExtResource("7_1axlp")]

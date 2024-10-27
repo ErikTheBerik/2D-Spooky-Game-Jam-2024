@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3wc7hvdropaj"
+path="res://.godot/imported/Metal Gear Solid Alert - QuickSounds.com.mp3-dd73b6a3888723dfa47cc426bfd30733.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Metal Gear Solid Alert - QuickSounds.com.mp3"
+dest_files=["res://.godot/imported/Metal Gear Solid Alert - QuickSounds.com.mp3-dd73b6a3888723dfa47cc426bfd30733.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.65
+bpm=120.0
+beat_count=0
+bar_beats=4
