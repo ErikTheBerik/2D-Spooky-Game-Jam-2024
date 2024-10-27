@@ -295,10 +295,11 @@ debug_path_custom_color = Color(0.91375, 0.332255, 0.161062, 1)
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dten2")
-animation = &"walk_up"
+animation = &"idle"
 offset = Vector2(0, -8)
 
 [node name="Exclamation" parent="." instance=ExtResource("9_uwsb1")]
+visible = false
 offset = Vector2(0, -80)
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]

@@ -259,6 +259,7 @@ animation = &"idle"
 offset = Vector2(0, -8)
 
 [node name="Exclamation" parent="." instance=ExtResource("8_tetch")]
+visible = false
 offset = Vector2(0, -76)
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
