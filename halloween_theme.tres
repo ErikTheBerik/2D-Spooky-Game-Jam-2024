@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://3xl77lpklws"]
+
+[ext_resource type="FontFile" uid="uid://buvd3ciurrkgx" path="res://menu/RubikWetPaint-Regular.ttf" id="1_8umuc"]
+
+[resource]
+default_font = ExtResource("1_8umuc")
+Button/colors/font_color = Color(0.643137, 0.670588, 0.133333, 1)

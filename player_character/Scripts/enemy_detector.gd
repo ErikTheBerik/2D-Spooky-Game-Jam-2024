@@ -3,6 +3,7 @@ extends Area2D
 @export var SLOWDOWN_DISTANCE := 40.0;
 var m_Enemies: Array[Enemy] = []
 var m_Character: Player
+@onready var shout: AudioStreamPlayer = $"../Shout"
 
 var m_Timer: Timer = null;
 # Called when the node enters the scene tree for the first time.
@@ -49,6 +50,7 @@ func _process(delta: float) -> void:
 		
 		m_Enemies.clear();
 		
+		shout.play();
 		m_Timer.stop();
 		m_Timer.start();
 

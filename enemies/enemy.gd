@@ -40,6 +40,7 @@ enum State {
 @onready var animation: AnimatedSprite2D = $Animation
 @onready var scare_icon: Sprite2D = $ScareIcon
 @onready var exclamation: Sprite2D = $Exclamation
+@onready var idle_vfx: GPUParticles2D = $idle_vfx
 
 var m_DetectionValue := 0.0;
 var m_Detecting := false;
@@ -66,6 +67,9 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return;
 	
+	if (m_State != State.Idle):
+		idle_vfx.emitting = false;
+		
 	ProcessDetection(delta)
 	animation.flip_h = false;
 	
@@ -88,6 +92,7 @@ func ProcessDetection(delta: float) -> void:
 		if (m_DetectionValue >= DETECTION_TIME):
 			get_tree().call_group("Enemy", "OnDetect")
 			get_tree().call_group("Player", "StopFuckingMoving");
+			get_tree().call_group("Player", "PlaySolidSnakeSoundPrettyPlease");
 	else:
 		m_DetectionValue -= delta;
 		m_DetectionValue = maxf(0.0, m_DetectionValue);	
@@ -189,10 +194,10 @@ func RotateConeVision() -> void:
 
 ## REMOVE THIS BEFORE EXPORT!!
 func SelectedInEditor() -> bool:
-	if !Engine.is_editor_hint():
-		return false;
-	var nodes := EditorInterface.get_selection().get_selected_nodes();
-	return nodes.size() > 0 && nodes[0] == self;
+	#if !Engine.is_editor_hint():
+		#return false;
+	#var nodes := EditorInterface.get_selection().get_selected_nodes();
+	#return nodes.size() > 0 && nodes[0] == self;
 	return false;
 
 func _draw() -> void:		
@@ -285,6 +290,7 @@ func SetDesiredDirectionOverTime(desiredDirection: Vector2, delta: float) -> voi
 ## ON ENTER STATES ##
 func OnEnteredIdle() -> void:
 	m_Timer = randf_range(MIN_IDLE_TIME, MAX_IDLE_TIME)
+	idle_vfx.emitting = true;
 	
 func OnEnteredWalking() -> void:
 	m_GoingToA = !m_GoingToA

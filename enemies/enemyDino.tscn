@@ -1,7 +1,8 @@
-[gd_scene load_steps=43 format=3 uid="uid://df1584rd83crv"]
+[gd_scene load_steps=44 format=3 uid="uid://df1584rd83crv"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_w7cni"]
 [ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="2_5lwqy"]
+[ext_resource type="PackedScene" uid="uid://bonu5hufeu1m6" path="res://Assets/VFX/idle dancing whistle.tscn" id="2_yg48u"]
 [ext_resource type="Texture2D" uid="uid://jv1w2avwdb4n" path="res://Assets/Spritesheets/dino-idle.png" id="3_eq4hm"]
 [ext_resource type="Texture2D" uid="uid://cjpnqlrqogbuy" path="res://Assets/VFX/shadow.png" id="4_5dk3f"]
 [ext_resource type="Texture2D" uid="uid://pld3ola0rij8" path="res://Assets/Spritesheets/dino-scared.png" id="4_hc5j4"]
@@ -260,6 +261,10 @@ vision_color = Color(0.246022, 0.66931, 0.876344, 0.686275)
 MIN_IDLE_TIME = 3.0
 MAX_IDLE_TIME = 6.0
 metadata/_edit_group_ = true
+
+[node name="idle_vfx" parent="." instance=ExtResource("2_yg48u")]
+position = Vector2(0, -24)
+emitting = false
 
 [node name="ScareIcon" parent="." instance=ExtResource("8_xjsak")]
 visible = false

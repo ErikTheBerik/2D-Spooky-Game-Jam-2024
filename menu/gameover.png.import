@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://ddg880kxirb8m"
+path="res://.godot/imported/gameover.png-523e29de7ae1ecb7c612047e4c4eb75e.image"
+
+[deps]
+
+source_file="res://menu/gameover.png"
+dest_files=["res://.godot/imported/gameover.png-523e29de7ae1ecb7c612047e4c4eb75e.image"]
+
+[params]
+

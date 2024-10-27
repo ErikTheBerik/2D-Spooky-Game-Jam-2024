@@ -28,8 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://425fr4pfoj0" path="res://Assets/Tilesets/sciencelab/becker small 2.png" id="26_r12ph"]
 [ext_resource type="PackedScene" uid="uid://bluuvti72vvxq" path="res://Assets/animations/Bat.tscn" id="27_63gy2"]
 [ext_resource type="Texture2D" uid="uid://cjx48axgwvvam" path="res://Assets/Tilesets/classroom/window.png" id="27_iv1mo"]
-[ext_resource type="PackedScene" uid="uid://dqw6o4n44j6q2" path="res://science_table.tscn" id="28_2q3if"]
-[ext_resource type="PackedScene" uid="uid://cndpfq2wnnvvo" path="res://Blackboard.tscn" id="29_fyk10"]
+[ext_resource type="PackedScene" path="res://science_table.tscn" id="28_2q3if"]
+[ext_resource type="PackedScene" path="res://Blackboard.tscn" id="29_fyk10"]
 [ext_resource type="Texture2D" uid="uid://hdcicttkopde" path="res://Assets/Tilesets/sciencelab/becker large 1.png" id="30_wc35p"]
 [ext_resource type="Texture2D" uid="uid://iptvsaxpavx1" path="res://Assets/Tilesets/sciencelab/becker medium.png" id="31_se5od"]
 [ext_resource type="Texture2D" uid="uid://b7gl6eru005ya" path="res://Assets/Tilesets/sciencelab/becker small 3.png" id="32_m8l5y"]
@@ -181,13 +181,13 @@ sources/0 = SubResource("TileSetAtlasSource_tpwp3")
 sources/2 = SubResource("TileSetAtlasSource_bnp4q")
 sources/32 = SubResource("TileSetAtlasSource_gqwtl")
 
-[node name="Layer Holder" type="NavigationRegion2D"]
+[node name="Layer Holder2" type="NavigationRegion2D"]
 y_sort_enabled = true
 position = Vector2(0, -1)
 navigation_polygon = SubResource("NavigationPolygon_pgwr2")
 script = ExtResource("1_dquse")
 _game_over_scene = "res://menu/game_over.tscn"
-_clear_level_scene = "res://menu/MainMenu.tscn"
+_clear_level_scene = "res://menu/win_scene.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(145, -81)
@@ -279,7 +279,7 @@ position = Vector2(53, -203)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_shxdh")
-volume_db = -35.625
+volume_db = -10.0
 pitch_scale = 1.2
 autoplay = true
 parameters/looping = true

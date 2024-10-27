@@ -7,6 +7,7 @@ class_name Player extends CharacterBody2D
 var m_Speed := 0.0;
 var m_SpeedOverride := 0.0
 @onready var animation: AnimatedSprite2D = $Animation
+@onready var spotted_sound: AudioStreamPlayer = $SpottedSound
 
 var epsilon := 0.5; # close enough to 0s
 var isScaring := false;
@@ -91,6 +92,10 @@ func GetDirectionString() -> String:
 	
 	return "right"
 
+	
+	
+func PlaySolidSnakeSoundPrettyPlease() -> void:
+	spotted_sound.play();
 	
 func CalculateSpeed(delta: float, isAccelerating: bool) -> void:
 	if (m_SpeedOverride && isAccelerating):

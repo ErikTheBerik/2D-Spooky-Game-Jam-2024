@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Spooky Game"
+config/name="Grumpy Grader"
+config/description="Little game about a teacher that wants to be alone and grade his exams"
 run/main_scene="res://menu/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://dino_icon.png"
 
 [debug]
 
@@ -30,6 +31,10 @@ window/stretch/mode="canvas_items"
 
 Enemy=""
 Player=""
+
+[gui]
+
+theme/custom="res://halloween_theme.tres"
 
 [input]
 
@@ -86,3 +91,5 @@ Scare={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.745263, 0.547175, 0.402003, 1)
