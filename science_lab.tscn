@@ -6,6 +6,7 @@
 [node name="ScienceLab" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 texture = ExtResource("1_tp3o2")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
