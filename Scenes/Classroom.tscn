@@ -1,6 +1,7 @@
-[gd_scene load_steps=41 format=4 uid="uid://gjfjo506jri6"]
+[gd_scene load_steps=42 format=4 uid="uid://gjfjo506jri6"]
 
 [ext_resource type="Texture2D" uid="uid://c5fy5tp1f0icp" path="res://Assets/Tilesets/classroom tiles (1).png" id="1_d4c81"]
+[ext_resource type="Script" path="res://Scenes/level_manager.gd" id="1_dquse"]
 [ext_resource type="Texture2D" uid="uid://bkjgto2g3r7x1" path="res://Assets/Tilesets/Classroom props (3).png" id="2_2hjot"]
 [ext_resource type="Texture2D" uid="uid://du6rxtjwahmn2" path="res://Assets/Tilesets/floor2.png" id="2_i2hw8"]
 [ext_resource type="Texture2D" uid="uid://cmxuq1bmdv20" path="res://Assets/Tilesets/sciencelab/locker corridor.png" id="4_ft12y"]
@@ -27,8 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://425fr4pfoj0" path="res://Assets/Tilesets/sciencelab/becker small 2.png" id="26_r12ph"]
 [ext_resource type="PackedScene" uid="uid://bluuvti72vvxq" path="res://Assets/animations/Bat.tscn" id="27_63gy2"]
 [ext_resource type="Texture2D" uid="uid://cjx48axgwvvam" path="res://Assets/Tilesets/classroom/window.png" id="27_iv1mo"]
-[ext_resource type="PackedScene" uid="uid://dqw6o4n44j6q2" path="res://science_table.tscn" id="28_2q3if"]
-[ext_resource type="PackedScene" uid="uid://cndpfq2wnnvvo" path="res://Blackboard.tscn" id="29_fyk10"]
+[ext_resource type="PackedScene" path="res://science_table.tscn" id="28_2q3if"]
+[ext_resource type="PackedScene" path="res://Blackboard.tscn" id="29_fyk10"]
 [ext_resource type="Texture2D" uid="uid://hdcicttkopde" path="res://Assets/Tilesets/sciencelab/becker large 1.png" id="30_wc35p"]
 [ext_resource type="Texture2D" uid="uid://iptvsaxpavx1" path="res://Assets/Tilesets/sciencelab/becker medium.png" id="31_se5od"]
 [ext_resource type="Texture2D" uid="uid://b7gl6eru005ya" path="res://Assets/Tilesets/sciencelab/becker small 3.png" id="32_m8l5y"]
@@ -180,6 +181,9 @@ sources/32 = SubResource("TileSetAtlasSource_gqwtl")
 [node name="Layer Holder" type="NavigationRegion2D"]
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_pgwr2")
+script = ExtResource("1_dquse")
+_game_over_scene = "res://menu/game_over.tscn"
+_clear_level_scene = "res://menu/MainMenu.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(145, -81)
