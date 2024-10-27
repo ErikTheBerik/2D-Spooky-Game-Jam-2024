@@ -242,9 +242,6 @@ scale = Vector2(0.780247, 0.652016)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("7_o882f")]
-position = Vector2(27, 32)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
@@ -259,3 +256,5 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_fqm17")
 theme_override_styles/fill = SubResource("StyleBoxFlat_t80y0")
 value = 69.0
 show_percentage = false
+
+[node name="Player" parent="." instance=ExtResource("7_o882f")]

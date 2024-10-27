@@ -1,8 +1,8 @@
 [gd_scene load_steps=48 format=3 uid="uid://rp0iohdml0vp"]
 
-[ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_igct0"]
+[ext_resource type="Script" path="res://player_character/Scripts/player.gd" id="1_igct0"]
 [ext_resource type="Texture2D" uid="uid://bxy7ry1enc623" path="res://player_character/Player-idle.png" id="2_opjj1"]
-[ext_resource type="Script" path="res://Scenes/Scripts/enemy_detector.gd" id="3_7gw1g"]
+[ext_resource type="Script" path="res://player_character/Scripts/enemy_detector.gd" id="3_7gw1g"]
 [ext_resource type="Texture2D" uid="uid://dw7tv5ut7heg7" path="res://player_character/Player-Scare.png" id="3_u7g8a"]
 [ext_resource type="Texture2D" uid="uid://bl62m4oirty45" path="res://player_character/Player-frontwalk.png" id="4_j4t87"]
 [ext_resource type="Texture2D" uid="uid://budl2asnnc8hn" path="res://player_character/Player-Sidewalk.png" id="5_h7qva"]

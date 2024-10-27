@@ -218,6 +218,7 @@ MAX_IDLE_TIME = 6.0
 metadata/_edit_group_ = true
 
 [node name="ScareIcon" parent="." instance=ExtResource("7_0neui")]
+visible = false
 position = Vector2(0, -31)
 scale = Vector2(0.78125, 0.78125)
 
