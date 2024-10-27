@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://0y5axqj7cddd"]
+[gd_scene load_steps=16 format=3 uid="uid://0y5axqj7cddd"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_siv2t"]
+[ext_resource type="PackedScene" uid="uid://b5tdw2rs0s2fd" path="res://Scenes/ScareIconPopup.tscn" id="2_sykna"]
 [ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="2_ualbs"]
 [ext_resource type="Texture2D" uid="uid://c861ueacphv20" path="res://Assets/Spritesheets/grim-idle.png" id="3_8i1dt"]
 [ext_resource type="Texture2D" uid="uid://b7q0x55xk3lh6" path="res://Assets/Spritesheets/grim-scared.png" id="4_au11g"]
@@ -102,6 +103,9 @@ MIN_IDLE_TIME = 3.0
 MAX_IDLE_TIME = 6.0
 metadata/_edit_group_ = true
 
+[node name="Scare Icon Popup" parent="." instance=ExtResource("2_sykna")]
+position = Vector2(0, -37)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_cbo24")
@@ -127,7 +131,6 @@ color = Color(0.246022, 0.66931, 0.876344, 0.686275)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 5.0
 target_desired_distance = 5.0
-path_postprocessing = 1
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.91375, 0.332255, 0.161062, 1)

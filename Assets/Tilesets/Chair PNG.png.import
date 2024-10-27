@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxy7ry1enc623"
-path="res://.godot/imported/Player-idle.png-7ca224c1e00f029bddaa55f4e5baa772.ctex"
+uid="uid://0jq1vs6mgh3x"
+path="res://.godot/imported/Chair PNG.png-ab074c05a4621db9f0cf7dbf5900df13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Spritesheets/Player-idle.png"
-dest_files=["res://.godot/imported/Player-idle.png-7ca224c1e00f029bddaa55f4e5baa772.ctex"]
+source_file="res://Assets/Tilesets/Chair PNG.png"
+dest_files=["res://.godot/imported/Chair PNG.png-ab074c05a4621db9f0cf7dbf5900df13.ctex"]
 
 [params]
 
