@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b18qe1m8vhbhg" path="res://Assets/Spritesheets/witch-scared.png" id="4_3rci1"]
 [ext_resource type="Texture2D" uid="uid://cay2wdckysq5t" path="res://Assets/Spritesheets/witch-Sidewalkt.png" id="5_sp3l0"]
 [ext_resource type="Texture2D" uid="uid://c1y1umy588vno" path="res://Assets/Spritesheets/witch-Upwalk.png" id="6_yiwym"]
-[ext_resource type="PackedScene" path="res://Scenes/ScareIconPopup.tscn" id="7_0neui"]
+[ext_resource type="PackedScene" uid="uid://2p45tn6p2kci" path="res://Scenes/ScareIconPopup.tscn" id="7_0neui"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cbo24"]
 radius = 12.0
@@ -217,7 +217,7 @@ MIN_IDLE_TIME = 3.0
 MAX_IDLE_TIME = 6.0
 metadata/_edit_group_ = true
 
-[node name="Scare Icon Popup" parent="." instance=ExtResource("7_0neui")]
+[node name="ScareIcon" parent="." instance=ExtResource("7_0neui")]
 position = Vector2(0, -31)
 scale = Vector2(0.78125, 0.78125)
 

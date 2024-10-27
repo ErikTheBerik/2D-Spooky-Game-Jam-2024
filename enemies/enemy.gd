@@ -37,6 +37,7 @@ enum State {
 @onready var vision_renderer: Polygon2D = $VisionCone2D/VisionConeRenderer
 @onready var m_Speed := randf_range(MIN_SPEED, MAX_SPEED)
 @onready var animation: AnimatedSprite2D = $Animation
+@onready var scare_icon: Sprite2D = $ScareIcon
 
 var pointRadius: float = 10.0;
 
@@ -47,6 +48,7 @@ var m_Direction := Vector2.ZERO;
 var m_TargetPos := Vector2.ZERO;
 
 func _ready() -> void:
+	scare_icon.visible = false
 	m_Direction = Vector2.RIGHT;
 	vision_renderer.color = vision_color
 	InputMap.load_from_project_settings()

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c2huje5trhxxd" path="res://Assets/Spritesheets/ghost-DownWalk.png" id="5_xm8lo"]
 [ext_resource type="Texture2D" uid="uid://bxutpgdynjtq4" path="res://Assets/Spritesheets/ghost-Sidewalk.png" id="6_dho1y"]
 [ext_resource type="Texture2D" uid="uid://0bylppkw53kt" path="res://Assets/Spritesheets/ghost-Backwalk.png" id="7_l6hif"]
-[ext_resource type="PackedScene" uid="uid://b5tdw2rs0s2fd" path="res://Scenes/ScareIconPopup.tscn" id="8_sfa5t"]
+[ext_resource type="PackedScene" uid="uid://2p45tn6p2kci" path="res://Scenes/ScareIconPopup.tscn" id="8_sfa5t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cbo24"]
 radius = 12.0
@@ -274,6 +274,9 @@ MIN_IDLE_TIME = 3.0
 MAX_IDLE_TIME = 6.0
 metadata/_edit_group_ = true
 
+[node name="ScareIcon" parent="." instance=ExtResource("8_sfa5t")]
+position = Vector2(0, -34)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_cbo24")
@@ -308,9 +311,6 @@ sprite_frames = SubResource("SpriteFrames_dten2")
 animation = &"walk_up"
 frame_progress = 0.45618
 offset = Vector2(0, -8)
-
-[node name="Scare Icon Popup" parent="." instance=ExtResource("8_sfa5t")]
-position = Vector2(0, -34)
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
 [connection signal="body_exited" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_exited"]

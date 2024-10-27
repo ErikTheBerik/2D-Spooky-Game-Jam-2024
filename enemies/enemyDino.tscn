@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dsk3ijdlp330p" path="res://Assets/Spritesheets/dino-downwalk.png" id="5_1b0vt"]
 [ext_resource type="Texture2D" uid="uid://cggh1vamle6xt" path="res://Assets/Spritesheets/dino-sidewalk.png" id="6_vqqa1"]
 [ext_resource type="Texture2D" uid="uid://d3beykjikoxf4" path="res://Assets/Spritesheets/dino-upwalk.png" id="7_u25u6"]
-[ext_resource type="PackedScene" uid="uid://b5tdw2rs0s2fd" path="res://Scenes/ScareIconPopup.tscn" id="8_xjsak"]
+[ext_resource type="PackedScene" uid="uid://2p45tn6p2kci" path="res://Scenes/ScareIconPopup.tscn" id="8_xjsak"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cbo24"]
 radius = 12.0
@@ -260,6 +260,9 @@ MIN_IDLE_TIME = 3.0
 MAX_IDLE_TIME = 6.0
 metadata/_edit_group_ = true
 
+[node name="ScareIcon" parent="." instance=ExtResource("8_xjsak")]
+position = Vector2(0, -35)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_cbo24")
@@ -294,9 +297,6 @@ sprite_frames = SubResource("SpriteFrames_dten2")
 animation = &"walk_right"
 autoplay = "idle"
 offset = Vector2(0, -8)
-
-[node name="Scare Icon Popup" parent="." instance=ExtResource("8_xjsak")]
-position = Vector2(0, -35)
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
 [connection signal="body_exited" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_exited"]

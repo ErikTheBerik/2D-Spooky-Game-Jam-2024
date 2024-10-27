@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://c5fy5tp1f0icp" path="res://Assets/Tilesets/classroom tiles (1).png" id="1_d4c81"]
 [ext_resource type="Texture2D" uid="uid://bkjgto2g3r7x1" path="res://Assets/Tilesets/Classroom props (3).png" id="2_2hjot"]
-[ext_resource type="PackedScene" uid="uid://xlgr2ti14cbj" path="res://Player Character/character_body_2d.tscn" id="3_8sfow"]
 [ext_resource type="PackedScene" uid="uid://fuof5dmuknpo" path="res://enemies/enemyGhost.tscn" id="4_sh28g"]
 [ext_resource type="PackedScene" uid="uid://df1584rd83crv" path="res://enemies/enemyDino.tscn" id="5_1qfre"]
 [ext_resource type="PackedScene" uid="uid://0y5axqj7cddd" path="res://enemies/enemyGrim.tscn" id="6_wxqkk"]
 [ext_resource type="PackedScene" uid="uid://8ybulnv0i1xe" path="res://enemies/enemyWitch.tscn" id="7_mxi2b"]
+[ext_resource type="PackedScene" uid="uid://rp0iohdml0vp" path="res://Scenes/PlayerCharacter.tscn" id="7_o882f"]
 [ext_resource type="PackedScene" uid="uid://d0oifnnuugkhj" path="res://Scenes/Chair.tscn" id="8_p0km3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_pgwr2"]
@@ -172,12 +172,6 @@ position = Vector2(0, -16)
 tile_map_data = PackedByteArray("AAD9//X/AgAAAAAAAAD9//b/AgAAAAEAAAD9//f/AgAAAAIAAAD+//X/AgABAAAAAAD+//b/AgABAAEAAAD+//f/AgABAAIAAAD///X/AgACAAAAAAD///b/AgACAAEAAAD///f/AgACAAIAAAAAAPX/AgADAAAAAAAAAPb/AgADAAEAAAAAAPf/AgADAAIAAAABAPX/AgAEAAAAAAABAPb/AgAEAAEAAAABAPf/AgAEAAIAAAAHAPX/AgAAAAAAAAAHAPb/AgAAAAEAAAAHAPf/AgAAAAIAAAAIAPX/AgABAAAAAAAIAPb/AgABAAEAAAAIAPf/AgABAAIAAAAJAPX/AgACAAAAAAAJAPb/AgACAAEAAAAJAPf/AgACAAIAAAAKAPX/AgADAAAAAAAKAPb/AgADAAEAAAAKAPf/AgADAAIAAAALAPX/AgAEAAAAAAALAPb/AgAEAAEAAAALAPf/AgAEAAIAAAACAPX/AgAHAAIAAAACAPb/AgAHAAMAAAADAPX/AgAIAAIAAAADAPb/AgAIAAMAAAAEAPX/AgAFAAIAAAA=")
 tile_set = SubResource("TileSet_d051h")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_8sfow")]
-position = Vector2(-41, -165)
-metadata/_edit_group_ = true
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-
 [node name="Ghost" parent="." instance=ExtResource("4_sh28g")]
 position = Vector2(94, 49)
 POINTS_A = Array[Vector2]([Vector2(-63.5544, -105.592), Vector2(144.101, -148.245), Vector2(361.859, -75.2855)])
@@ -239,3 +233,6 @@ position = Vector2(239, -16)
 scale = Vector2(0.780247, 0.652016)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("7_o882f")]
+position = Vector2(27, 32)
