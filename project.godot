@@ -26,6 +26,10 @@ window/size/viewport_height=360
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+Enemy=""
+
 [input]
 
 NEW_POINT_A={

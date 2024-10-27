@@ -1,6 +1,6 @@
 @tool
  
-extends CharacterBody2D
+class_name Enemy extends CharacterBody2D
 
 enum State {
 	Idle,
@@ -99,12 +99,16 @@ func _physics_process(delta: float) -> void:
 func RotateConeVision() -> void:
 	vision_cone.rotation = m_Direction.angle() + deg_to_rad(270)
 
+## REMOVE THIS BEFORE EXPORT!!
 func SelectedInEditor() -> bool:
-	var nodes := EditorInterface.get_selection().get_selected_nodes();
-	return nodes.size() > 0 && nodes[0] == self;
+	#if !Engine.is_editor_hint():
+		#return false;
+	#var nodes := EditorInterface.get_selection().get_selected_nodes();
+	#return nodes.size() > 0 && nodes[0] == self;
+	return false;
 
-func _draw() -> void:
-	if Engine.is_editor_hint() && SelectedInEditor():
+func _draw() -> void:		
+	if SelectedInEditor():
 		DrawPoints(POINTS_A, Color.RED);
 		DrawLines(POINTS_A, Color.RED);
 		

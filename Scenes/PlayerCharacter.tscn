@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://k81xqo3a1aik"]
+[gd_scene load_steps=13 format=3 uid="uid://rp0iohdml0vp"]
 
-[ext_resource type="Script" path="res://Scenes/Scripts/character_body_2d.gd" id="1_wprin"]
+[ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_igct0"]
 [ext_resource type="Texture2D" uid="uid://bxy7ry1enc623" path="res://Assets/Spritesheets/Player-idle.png" id="2_opjj1"]
+[ext_resource type="Script" path="res://Scenes/Scripts/enemy_detector.gd" id="3_7gw1g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1gufn"]
 atlas = ExtResource("2_opjj1")
@@ -74,22 +75,41 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jyfrj"]
-height = 38.0
+radius = 7.0
+height = 24.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_n0hny"]
+radius = 53.0003
+
+[node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 3
 collision_mask = 4
 motion_mode = 1
-script = ExtResource("1_wprin")
+script = ExtResource("1_igct0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hv48t")
 animation = &"idle"
 frame = 5
 frame_progress = 0.0534701
+offset = Vector2(3.79, -10.48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(0, 3.02)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jyfrj")
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_7gw1g")
+MIN_SCARE_SPEED = null
+SLOWDOWN_DISTANCE = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+position = Vector2(0, -7.18)
+shape = SubResource("CircleShape2D_n0hny")
+
+[connection signal="body_entered" from="EnemyDetector" to="EnemyDetector" method="_on_body_entered"]
+[connection signal="body_exited" from="EnemyDetector" to="EnemyDetector" method="_on_body_exited"]

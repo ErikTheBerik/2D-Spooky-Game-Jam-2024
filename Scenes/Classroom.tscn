@@ -2,17 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://c5fy5tp1f0icp" path="res://Assets/Tilesets/classroom tiles (1).png" id="1_d4c81"]
 [ext_resource type="Texture2D" uid="uid://bkjgto2g3r7x1" path="res://Assets/Tilesets/Classroom props (3).png" id="2_2hjot"]
-[ext_resource type="PackedScene" uid="uid://xlgr2ti14cbj" path="res://Scenes/character_body_2d.tscn" id="3_8sfow"]
 [ext_resource type="PackedScene" uid="uid://fuof5dmuknpo" path="res://enemies/enemyGhost.tscn" id="4_sh28g"]
 [ext_resource type="PackedScene" uid="uid://df1584rd83crv" path="res://enemies/enemyDino.tscn" id="5_1qfre"]
 [ext_resource type="PackedScene" uid="uid://0y5axqj7cddd" path="res://enemies/enemyGrim.tscn" id="6_wxqkk"]
 [ext_resource type="PackedScene" uid="uid://8ybulnv0i1xe" path="res://enemies/enemyWitch.tscn" id="7_mxi2b"]
+[ext_resource type="PackedScene" uid="uid://rp0iohdml0vp" path="res://Scenes/PlayerCharacter.tscn" id="7_o882f"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_pgwr2"]
-vertices = PackedVector2Array(341, -171, 341, -245, 395, -270, 395, 60, -138.039, -270.992, 295, -245, 289.313, -5, 288.883, 13, 288.883, -83, 289.313, -101, 295, -171, 289, -21, -139, 60, 251, 13, 59, -213, 59, -179, 1.3125, -197, 1, -213, 1, -21, 0.882813, -179, 59, -117, 155, -213, 155, -179, 97.3125, -197, 97, -213, 96.8828, -179, 155, -117, 97.3125, -101, 97, -117, 155, -83, 96.8828, -83, 192.883, -179, 251, -117, 251, -83, 193.313, -101, 193, -117, 192.883, -83, 251, -21, 193.313, -5, 193, -21, 59, -21, 59, 13, 1.3125, -5, 0.882813, 13, 155, -21, 155, 13, 97.3125, -5, 97, -21, 96.8828, 13, 192.883, 13, -37, 13, -139, -162.289, -37, -21, 193.313, -197, 289, -117, 193, -197, 193, -213, 97, -197, 1, -197, -37, -213, -37, -179, 289, -101, 193, -101, 97, -101, 59, -83, 289, -5, 193, -5, 97, -5, 1, -5)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1, 5), PackedInt32Array(6, 0, 3, 7), PackedInt32Array(8, 9, 10, 0, 6, 11), PackedInt32Array(7, 3, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 16, 15, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 23, 22, 26, 27, 28), PackedInt32Array(27, 26, 29, 30), PackedInt32Array(31, 32, 33, 34, 35), PackedInt32Array(36, 34, 33, 37, 38, 39), PackedInt32Array(40, 41, 42, 18), PackedInt32Array(43, 42, 41), PackedInt32Array(30, 44, 45, 46, 47), PackedInt32Array(48, 46, 45), PackedInt32Array(38, 37, 13, 49), PackedInt32Array(49, 13, 12), PackedInt32Array(45, 49, 12), PackedInt32Array(48, 45, 12), PackedInt32Array(41, 48, 12), PackedInt32Array(43, 41, 12), PackedInt32Array(50, 43, 12), PackedInt32Array(50, 12, 51, 52), PackedInt32Array(31, 53, 5, 10, 54, 32), PackedInt32Array(53, 55, 56, 5), PackedInt32Array(4, 5, 56, 21), PackedInt32Array(23, 57, 24), PackedInt32Array(4, 21, 24), PackedInt32Array(4, 24, 14), PackedInt32Array(16, 58, 17), PackedInt32Array(4, 14, 17), PackedInt32Array(4, 17, 59), PackedInt32Array(51, 4, 59, 60), PackedInt32Array(52, 51, 60, 19, 18), PackedInt32Array(9, 61, 54, 10), PackedInt32Array(34, 62, 35), PackedInt32Array(31, 35, 26, 22), PackedInt32Array(27, 63, 28), PackedInt32Array(25, 28, 20, 15), PackedInt32Array(18, 20, 64), PackedInt32Array(6, 65, 11), PackedInt32Array(8, 11, 37, 33), PackedInt32Array(38, 66, 39), PackedInt32Array(36, 39, 44, 29), PackedInt32Array(30, 29, 44), PackedInt32Array(46, 67, 47), PackedInt32Array(30, 47, 40, 64), PackedInt32Array(18, 64, 40), PackedInt32Array(18, 42, 68)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(400, -275, 401, 65, -146, 65, -143, -276)])
-agent_radius = 5.0
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lv2au"]
+outlines = Array[PackedVector2Array]([PackedVector2Array(-145, -275, 399, -275, 400, 65, -147, 65)])
+parsed_collision_mask = 4294967292
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tpwp3"]
 texture = ExtResource("1_d4c81")
@@ -142,7 +140,7 @@ sources/2 = SubResource("TileSetAtlasSource_bnp4q")
 
 [node name="Layer Holder" type="NavigationRegion2D"]
 y_sort_enabled = true
-navigation_polygon = SubResource("NavigationPolygon_pgwr2")
+navigation_polygon = SubResource("NavigationPolygon_lv2au")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(131, -120)
@@ -171,28 +169,25 @@ position = Vector2(0, -16)
 tile_map_data = PackedByteArray("AAD9//X/AgAAAAAAAAD9//b/AgAAAAEAAAD9//f/AgAAAAIAAAD+//X/AgABAAAAAAD+//b/AgABAAEAAAD+//f/AgABAAIAAAD///X/AgACAAAAAAD///b/AgACAAEAAAD///f/AgACAAIAAAAAAPX/AgADAAAAAAAAAPb/AgADAAEAAAAAAPf/AgADAAIAAAABAPX/AgAEAAAAAAABAPb/AgAEAAEAAAABAPf/AgAEAAIAAAAHAPX/AgAAAAAAAAAHAPb/AgAAAAEAAAAHAPf/AgAAAAIAAAAIAPX/AgABAAAAAAAIAPb/AgABAAEAAAAIAPf/AgABAAIAAAAJAPX/AgACAAAAAAAJAPb/AgACAAEAAAAJAPf/AgACAAIAAAAKAPX/AgADAAAAAAAKAPb/AgADAAEAAAAKAPf/AgADAAIAAAALAPX/AgAEAAAAAAALAPb/AgAEAAEAAAALAPf/AgAEAAIAAAACAPX/AgAHAAIAAAACAPb/AgAHAAMAAAADAPX/AgAIAAIAAAADAPb/AgAIAAMAAAAEAPX/AgAFAAIAAAA=")
 tile_set = SubResource("TileSet_d051h")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_8sfow")]
-position = Vector2(-41, -165)
-metadata/_edit_group_ = true
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-
 [node name="Ghost" parent="." instance=ExtResource("4_sh28g")]
-position = Vector2(94, 49)
-POINTS_A = Array[Vector2]([Vector2(-63.5544, -105.592), Vector2(144.101, -148.245), Vector2(361.859, -75.2855)])
-POINTS_B = Array[Vector2]([Vector2(215.939, 54.9202), Vector2(-14.166, -262.737), Vector2(-52.3297, 47.0629)])
+position = Vector2(347, -33)
+POINTS_A = Array[Vector2]([Vector2(-69.2082, -85.6935)])
+POINTS_B = Array[Vector2]([Vector2(379.965, -245.207), Vector2(372.624, 51.1276)])
 
 [node name="Dino" parent="." instance=ExtResource("5_1qfre")]
-position = Vector2(-87, -240)
-POINTS_A = Array[Vector2]([Vector2(-91.5, -233.75), Vector2(375, 47.75)])
-POINTS_B = Array[Vector2]([Vector2(-78.5, 47.25), Vector2(375.5, -259.75)])
+position = Vector2(124, -62)
+POINTS_A = Array[Vector2]([Vector2(127.328, -67.6962), Vector2(-110.521, -235.091), Vector2(-105.753, 40.8987), Vector2(311.675, 49.3745)])
+POINTS_B = Array[Vector2]([Vector2(221.161, -252.363)])
 
 [node name="Grim" parent="." instance=ExtResource("6_wxqkk")]
-position = Vector2(343, -97)
-POINTS_A = Array[Vector2]([Vector2(358, -227.75), Vector2(353.5, 46.25), Vector2(123, -101.25)])
-POINTS_B = Array[Vector2]([Vector2(-100, 47.75)])
+position = Vector2(142, 36)
+POINTS_A = Array[Vector2]([Vector2(-36.8884, -59.7502), Vector2(115.145, -254.691), Vector2(369.416, -236.151)])
+POINTS_B = Array[Vector2]([Vector2(277.242, -51.2745)])
 
 [node name="Witch" parent="." instance=ExtResource("7_mxi2b")]
-position = Vector2(-109, -92)
-POINTS_A = Array[Vector2]([Vector2(-109.5, -95.25), Vector2(379, -100.25)])
-POINTS_B = Array[Vector2]([Vector2(128.5, -248.75), Vector2(148, 54.25)])
+position = Vector2(-98, -97)
+POINTS_A = Array[Vector2]([Vector2(-95.6886, -89.9449), Vector2(378.421, -109.015)])
+POINTS_B = Array[Vector2]([Vector2(131.566, -253.632), Vector2(161.761, 54.142)])
+
+[node name="Player" parent="." instance=ExtResource("7_o882f")]
+position = Vector2(105, 43)
